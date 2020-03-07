@@ -1,25 +1,51 @@
 ## What I understood during my quest to build a strong artificial intelligence
 
-### Context
-First I want to explain the context when I started this quest. In 2013, I was working in an innovation team working in the computer vision field. A collegue presented me the book **"On Intelligence (2004)"** from Jeff Hawkins. Inside he presents a functional theory on how the humain brain works. He based his theory from human behaviours, brain observations and how brains deseases/damages impacted the human behaviour. An interresting part is when he presents the brain as a prediction machine that learns when it's prediction is not verified. Even if it is an old book I recommand it. Jeff Hawkins also wanted to build a strong artificial intelligence from his theory. He created the project [nupic](https://github.com/numenta/nupic) _Numenta Platform for Intelligent Computing is an implementation of Hierarchical Temporal Memory (HTM), a theory of intelligence based strictly on the neuroscience of the neocortex_. However the project implemented a really tiny part of the book with to many simplifications that won't allow strong artificial intelligence.
-
-After deciding to start my own implementation of a strong artificial intelligence the deep-learning keyword just showed up everywhere. Everyone was talking about this new kind of artificial intelligence learning by itself. My first encounter was with [cuda-convnet](https://code.google.com/archive/p/cuda-convnet/) (2013). However I was quickly disapointed when I understood how it works and how far it was from a strong intelligence. So I decided to continue on my path to build my own neuronal network. _Quick [deep learning follow up](deep_learning.md)_
-
 ### Building a biomimetic brain
-Let's talk about my approach now. I wanted to build a nearly real time biomimetic brain. That means that I try to copy the real human brain with some compromises to be able to interact with it in live. I will always explain my compromises, and each time I do one it should not prevent the network from being intelligent (according to what I think ^^). You may have noticed that this approach is trying to create intelligence by copy without understanding everything. I hope getting a lot of hints on strong intelligence on the path and I want to share this here.
+My goal here is to **build a real time biomimetic brain**. That means that I will try to virtually replicate a real human brain. I hope to create an intelligence while doing it.
 
-To start my biomimetic approach I looked the inputs and outputs of the brain (retina, ears, touch, musles) and what exactly was going into/outside the brain.
-Then I looked how the brain link all theses inputs and outputs (neurons, cortical areas, hormones, ...). At each point I will also publish my implementation.
+Why realtime? I want it to learn something before I die ^^.
 
-- The brain outputs/inputs
-  - The retina (redaction on going)
-  - ears (redaction on going)
-  - musles (redaction on going)
-- The brain
+Being realtime will force me to do some compromises that I hope won't prevent intelligence to exists. I will explain all compromises I will do and why. If you disagree on one point fell free to tell me and try your one way!
+
+Lets get a plan on how to proceed.
+
+**Step 1 The senses:** Consider the brain as a black box: don't consider yet how the brain is working. Just analyze what are its **inputs and outputs**.
+A better understanding of the nature of its input is compulsory to do biomimetism.
+
+**Step 2 Senses modelisation:** Build libraries to generate these inputs and outputs.
+
+**Step 3 The brain:** Dive on how the brain works. How it links all theses inputs and outputs (neurons, cortical areas, hormones, ...)
+
+**Step 4 Brain modelisation:** Implement a brain making some compromises to keep it realtime
+
+**Step 5 Brain expériments:** Send inputs to the brain and try to detect signs of intelligence. If I can't detect it:
+ - try to find macroscopic differences with a real human brain => go back to step 3 to find why it is not happening in human brain.
+  - look over all compromises
+
+**Step 6 Are you sure?**
+
+I already went to step 5 and I want to present what I understood on the way. I hope you will learn something ^^
+
+## Step 1: The Senses
+I will cover the following senses
+  - [The retina](sensors/retina/retina.html) (redaction ongoing)
+  - ears (redaction ongoing)
+  - touch (redaction ongoing)
+  - musles (redaction ongoing)
+
+## Step 2: Senses modelisation
+(I am cleaning the code ^^)
+
+## Step 3: The brain
   - neurons (redaction on going)
   - cortical areas (redaction on going)
   - hormones (redaction on going)
   - What we can currently see in the brains? (irmf, public databases) (redaction on going)
+  - experimentations
   - ...
-- Annexes
-  - [deep learning follow up](deep_learning.md) (redaction on going)
+
+## Step 4: Brain modelisation
+(redaction on going)
+
+## Step 5: Brain expériments
+(redaction on going)
