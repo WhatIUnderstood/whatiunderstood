@@ -27,11 +27,16 @@ A better understanding of the nature of its input is compulsory to do biomimetis
 I already went to step 5 and I want to present what I understood on the way. I hope you will learn something ^^
 
 ## Step 1: The Senses
+
 I will cover the following senses
   - [The retina](sensors/retina/retina.html) (redaction ongoing)
-  - ears (redaction ongoing)
-  - touch (redaction ongoing)
-  - musles (redaction ongoing)
+  - ears (redaction todo)
+  - touch (redaction todo)
+  - musles (redaction todo)
+
+<a href="sensors/retina/retina.html">
+  <img src="sensors/retina/img/eye.png" width="60" alt="Color sensitivity" />
+</a>
 
 ## Step 2: Senses modelisation
 (I am cleaning the code ^^)
