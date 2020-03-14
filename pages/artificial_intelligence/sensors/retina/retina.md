@@ -7,7 +7,6 @@ Plan
 - How the retina convert light to nerve impulses
 - Distribution of rods and cones
 - What processing is done in the retina
-- Why rods cannot help to see colors
 - Notes
 
 ![Eye anatomy](img/eye.png "Eye anatomy")
@@ -39,7 +38,7 @@ Rods photosensitive pigment is the rhodopsin with a sensitivity peak arround 500
 
 As you may have noticed in the picture above, the red cones maximum sensitivity is more yellow than red however they are the cones with the most sensitivity to the red. That is why another notation is L-cones (long wave cone). The same is true for blue and green cones. They are also referenced as S-cones and M-cones (Short and medium waves cones).
 
-Rods are 1 000 times more light sensitive than cones. That is why under low light condition we mainly use them to see.
+Rods are 1 000 times more light sensitive than cones. That is why under low light condition we mainly use them to see. As rods are highly sensitive to intensity, they are always saturated in their response and cannot provide color informations.
 
 
 External link to go further:
@@ -135,20 +134,6 @@ Note that in the center of the fovea there are nearly no horizontal cells. This 
 go further:
 - [more](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 
-## Why rods cannot help to see colors
-Rods like cones have a sensitivity peak arround 500nm. So why they cannot be used to see colors?
-
-The first question to answer is: How cones allow to see colors?
-
-To distinguish colors with cones we need several ganglionar cells to have central receptive field mainly composed with the same photoreceptors (green, red). For example a lot of reds. However if you have only red cones everywhere you can't see colors. You need ON-Green, On-Red intertwined ganglionar cells. In that case you have cells in the same local area that respond differently according to the color!
-
-As you may remember the receptive field in the fovea contains only one cone. So in this area the ganglionar cell is sensitive to color.
-
-When you get further from the fovea you have more and more photoreceptors in the central field. At one point it is impossible to get a majority of one kind of cones. When they are as many red as green cones in the center receptive field then the cell response will be the same with a green or a red light. The ganglionar cell become just an ON/OFF with no color specialisation. It only detects contours and light intensity informations.
-
-If we get back to the rods it become obvious why they cannot detect color. They are located outside the fovea where the receptive fields are large and there are mainly rods that are sensitive to only one wavelength. Under these conditions ganglionar cells are undifferentiated so no color can be distinguished. Only contours and light intensity informations are available.
-
-(incomming picture examples)
 
 ## Notes
 - The retina is as thick as a cigarette paper
