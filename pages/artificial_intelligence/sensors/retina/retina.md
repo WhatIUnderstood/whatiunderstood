@@ -4,7 +4,7 @@ The retina is the part of the eye that converts light into nerve impulses that i
 
 Plan
 - How light come to the retina
-- How the retina convert light to nerve impulses
+- How the retina converts light into nerve impulses
 - Distribution of rods and cones
 - What processing is done in the retina
 - Connection with the brain
@@ -14,19 +14,19 @@ Plan
 <center><i>Fig. 1. Eye anatomy </i></center>
 
 ## How light come to the retina
-The eye works like a camera. The focus is made by the cornea and the lens. The aperture is controlled by the iris that can reduce or increase the quantity of light coming into the eye. Finally the sensor that convert light into nerve impulses is the retina.
+The eye works like a camera. The focus is made by the cornea and the lens. The aperture is controlled by the iris that can reduce or increase the quantity of light coming into the eye. Finally the sensor that converts light into nerve impulses is the retina.
 
 ![alt text](img/eye_rays.png "Eye image")
-<center><i>Fig. 2. Light trough the eye </i></center>
+<center><i>Fig. 2. Light through the eye </i></center>
 
 ## How the retina convert light to nerve impulses
-There are two kind of cells that can convert light into nerve impulses: cones and rods. They are called photoreceptors.
+There are two kinds of cells that can convert light into nerve impulses: cones and rods. They are called photoreceptors.
 
-These photoreceptors have photosensitive pigments whose form change when they are striked by light causing a cascade of chemical reactions.
+These photoreceptors have photosensitive pigments whose form change when they are struck by light, causing a cascade of chemical reactions leading to a change of the membrane potential.
 
-Cones photosensitive pigment is the opsin. There are three kind of opsin that have sensitivity peaks arround 419, 531 and 559 nanometers. Each cone contain mainly one kind of opsin. That is why we distinguish them in three categories: red cones (mainly 559 nm opsin), green cones (431 nm) and blue cones (419 nm).
+Cones photosensitive pigment is the opsin. There are three kinds of opsin that have sensitivity peaks around 419, 531 and 559 nanometers. Each cone contains mainly one kind of opsin. That is why we distinguish them in three categories: red cones (mainly 559 nm opsin), green cones (431 nm) and blue cones (419 nm).
 
-Rods photosensitive pigment is the rhodopsin with a sensitivity peak arround 500 nanometers.
+Rods photosensitive pigment is the rhodopsin with a sensitivity peak around 500 nanometers.
 
 <center>
     <a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_m/a_02_m_vis/a_02_m_vis.html" rel="some text"><img src="img/cones_rods.jpg" alt="Color sensitivity" /></a>
@@ -37,9 +37,9 @@ Rods photosensitive pigment is the rhodopsin with a sensitivity peak arround 500
 </center>
 
 
-As you may have noticed in the picture above, the red cones maximum sensitivity is more yellow than red however they are the cones with the most sensitivity to the red. That is why another notation is L-cones (long wave cone). The same is true for blue and green cones. They are also referenced as S-cones and M-cones (Short and medium waves cones).
+As you may have noticed in the picture above, the red cones maximum sensitivity is more yellow than red however, they are the cones with the most sensitivity to the red. That is why another notation is L-cones (long wave cone). The same is true for blue and green cones. They are also referenced as S-cones and M-cones (Short and medium wave cones).
 
-Rods are 1 000 times more light sensitive than cones. That is why under low light condition we mainly use them to see. As rods are highly sensitive to intensity, they are always saturated in their response and cannot provide color informations.
+Rods are 1 000 times more light sensitive than cones. That is why under low light condition, we mainly use them to see. As rods are highly sensitive to intensity, they are always saturated in their response and cannot provide color information.
 
 
 External link to go further:
@@ -47,9 +47,9 @@ External link to go further:
 - [light to to nerve impulses](https://thebrain.mcgill.ca/flash/i/i_02/i_02_m/i_02_m_vis/i_02_m_vis.html#2)
 
 ## Distribution of cones and rods
-They are 125 million photoreceptors in the retina: 120 million rods and 5 million cones. However they are not distributed evenly.
+They are 125 million photoreceptors in the retina: 120 million rods and 5 million cones. However, they are not distributed evenly.
 
-There are no rods in the center of the retina, only cones. This region is called fovea. It has a diameter of 1.5 mm and represent a vision angle of 1 degree. This is inside this area that we see things with high resolution and in color.
+There are no rods in the center of the retina, only cones. This region is called the fovea. It has a diameter of 1.5 mm and represent a vision angle of 1 degree. This is in this area that we see things with high resolution and in color.
 
 <center>
 <a href="" rel="some text"><img src="img/eye_fovea_only.png" alt="Fovea location" /></a>
@@ -65,7 +65,7 @@ The more you get away from the fovea the more rods you have and the less cones t
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-In the retina they are mainly red and green cone. They are very few blue cones. They are even absent from the center of the fovea.
+In the retina, they are mainly red and green cone. They are very few blue cones. They are even absent from the center of the fovea.
 <center>
 <a href="https://commons.wikimedia.org/w/index.php?curid=32075732" rel="some text"><img src="img/ConeMosaics.jpg" alt="On/Off ganglionar cells" /></a>
 </center>
@@ -76,11 +76,11 @@ In the retina they are mainly red and green cone. They are very few blue cones. 
 
 
 ##  What processing is done in the retina
-Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occuring in the retina with different cells than cones and rods.
+Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occurring in the retina with different cells than cones and rods.
 
-They are three main layers in the retina. The one deepest in the retina is the outer segment layer. It contains the photoreceptors (cones and rods).
+Their are three main layers in the retina. The one deepest in the retina is the outer segment layer. It contains the photoreceptors (cones and rods).
 
-The second one is the inner nuclear layer. It contains three kind of cells: bipolar cells, horizontal cells and amacrine cells.
+The second one is the inner nuclear layer. It contains three kinds of cells: bipolar cells, horizontal cells and amacrine cells.
 - Bipolar cells are connected to one or few cones and rods located close to it.
 - Horizontal cells are connected with many rods, cones and bipolar cells. They cause lateral inhibition.
 - Amacrine cells have not a yet a clear role. They are connected to bipolar cells.
@@ -95,7 +95,7 @@ The last main layer is the ganglion cell layer. It contains ganglionar cells. Th
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-To get high accuity the ratio of ganglionar cells/photoreceptor should be low. That is why in the fovea one cone is connected to one ganglionar cell trough one bipolar cell. The further you get the more cones and rods are inderctly linked to one ganglionar cell. The receptive fied of a ganglionar cell is increasing while you go far from the fovea.
+To get high acuity the ratio of ganglionar cells/photoreceptor should be low. That is why in the fovea one cone is connected to one ganglionar cell trough one bipolar cell. The further you get, the more cones and rods are indirectly linked to one ganglionar cell. The receptive field of a ganglionar cell is increasing while you go far from the fovea.
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/accuity.jpg" alt="Cones/Rods distribution" /></a>
 </center>
@@ -104,7 +104,7 @@ To get high accuity the ratio of ganglionar cells/photoreceptor should be low. T
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-We can divide the receptive field of one bipolar cell into two. A central receptive field containing the photoreceptors direcly connected to the bipolar cell and a peripheral receptive field which contains all photoreceptors relayed by the horizontal cell connected to this bipolar cell.
+We can divide the receptive field of one bipolar cell into two. A central receptive field containing the photoreceptors directly connected to the bipolar cell and a peripheral receptive field which contains all photoreceptors relayed by the horizontal cell connected to this bipolar cell.
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/receptive_field.jpg" alt="Receptive field" /></a>
 </center>
@@ -128,10 +128,10 @@ This lead to two ganglionar cells categories: ON-Centre, OFF-Centre.
 
 According to their receptive field ganglionar cells (GCs) are split into at least 4 categories.
 - Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation. The fovea contains mainly midget cells.
-- Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differenciate colors. They can only be used to send achromatic informations. They represent 10% of all GCs.
+- Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differentiate colors. They can only be used to send achromatic information. They represent 10% of all GCs.
 - Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They represents 8-10% of GCs
 
-In the fovea we found mainly midget cells (that why we see very well colors on the center of our vision).
+In the fovea we found mainly midget cells (that is why we see very well colors in the center of our vision).
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
@@ -139,7 +139,7 @@ go further:
 
 ## Connection with the brain
 
-The main entry point of the GCs axons in the brain is the lateral geniculate nucleus (LGN). 80% of GCs end up there. There are six layers inside the LGN and we can see that most of midget cell ends in the layers 3,4,5,6 and the parasol cell in the 1 and 2.
+The main entry point of the GCs axons in the brain is the lateral geniculate nucleus (LGN). 80% of GCs end up there. There are six layers in the LGN and we can see that most of the midget cell ends in the layers 3,4,5,6 and the parasol cell in the 1 and 2.
 
 Layers from 3 to 6 are called parvocellular layers and layers 1,2 are called magnocellular layers.
 
@@ -156,9 +156,9 @@ Ganglionar cells using the parvo pathway can be called P-Type cells. The ones us
 
 P-Type cells contains 80% of midget cells that is why we say that the parvo pathway allow us to see colors. It contains most of the fovea ganglionar cells responses.
 
-M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell composing m-type cells. It is the magno cellular pathway. It receive achromatic information.
+M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell composing m-type cells. It is the magno cellular pathway. It receives achromatic information.
 
-I tried to sum in the diagram below the distribution of all cells according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
+I tried to sum up in the diagram below the distribution of all cells, according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
 
 ![alt text](img/retina.png "Retina image")
 <center><i>Fig. 10. Retina layers</i></center>
