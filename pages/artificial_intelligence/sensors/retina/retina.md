@@ -7,6 +7,7 @@ Plan
 - How the retina convert light to nerve impulses
 - Distribution of rods and cones
 - What processing is done in the retina
+- Connection with the brain
 - Notes
 
 ![Eye anatomy](img/eye.png "Eye anatomy")
@@ -125,15 +126,47 @@ This lead to two ganglionar cells categories: ON-Centre, OFF-Centre.
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-Note that in the center of the fovea there are nearly no horizontal cells. This imply that there is only a center receptive field without any surrounding. I tried to sum in the diagram below the distribution of all cells according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
+According to their receptive field ganglionar cells (GCs) are split into at least 4 categories.
+- Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation. The fovea contains mainly midget cells.
+- Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differenciate colors. They can only be used to send achromatic informations. They represent 10% of all GCs.
+- Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They represents 8-10% of GCs
+
+In the fovea we found mainly midget cells (that why we see very well colors on the center of our vision).
+
+go further:
+- [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
+- [wikipedia] (https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
+
+## Connection with the brain
+
+The main entry point of the GCs axons in the brain is the lateral geniculate nucleus (LGN). 80% of GCs end up there. There are six layers inside the LGN and we can see that most of midget cell ends in the layers 3,4,5,6 and the parasol cell in the 1 and 2.
+
+Layers from 3 to 6 are called parvocellular layers and layers 1,2 are called magnocellular layers.
+
+<center>
+<a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cr/i_02_cr_vis/i_02_cr_vis.html" rel="some text"><img src="img/parvo_magno_brain_cut.jpg" alt="ganglionar cells pathways" /></a>
+</center>
+<center>
+    <i>Fig. 9. Parvo/Magno cellular layers</i>
+    <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
+</center>
+
+
+Ganglionar cells using the parvo pathway can be called P-Type cells. The ones using the magno pathway are called M-Type cells.
+
+P-Type cells contains 80% of midget cells that is why we say that the parvo pathway allow us to see colors. It contains most of the fovea ganglionar cells responses.
+
+M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell composing m-type cells. It is the magno cellular pathway. It receive achromatic information.
+
+I tried to sum in the diagram below the distribution of all cells according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
 
 ![alt text](img/retina.png "Retina image")
-<center><i>Fig. 9. Retina layers</i></center>
+<center><i>Fig. 10. Retina layers</i></center>
 
 
 go further:
-- [more](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
-
+- [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
+- [wikipedia] (https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
 
 ## Notes
 - The retina is as thick as a cigarette paper
