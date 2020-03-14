@@ -135,7 +135,7 @@ In the fovea we found mainly midget cells (that is why we see very well colors i
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
-- [wikipedia] (https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
+- [wikipedia](https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
 
 ## Connection with the brain
 
@@ -166,7 +166,7 @@ I tried to sum up in the diagram below the distribution of all cells, according 
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
-- [wikipedia] (https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
+- [wikipedia](https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
 
 ## Notes
 - The retina is as thick as a cigarette paper
