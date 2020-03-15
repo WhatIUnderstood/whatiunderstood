@@ -126,6 +126,18 @@ This lead to two ganglionar cells categories: ON-Centre, OFF-Centre.
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
+This phenomenon cause colors related responses when the center and the surrounding receptive fields are sensitive to colors.
+
+It also respond to contours as shown in the figure bellow.
+
+<center>
+<a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/contours.jpg" alt="On/Off ganglionar cells" /></a>
+</center>
+<center>
+    <i>Fig. 9. On-Centre Ganglionar cell response to contours</i>
+    <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
+</center>
+
 According to their receptive field ganglionar cells (GCs) are split into at least 4 categories.
 - Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation. The fovea contains mainly midget cells.
 - Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differentiate colors. They can only be used to send achromatic information. They represent 10% of all GCs.
@@ -147,7 +159,7 @@ Layers from 3 to 6 are called parvocellular layers and layers 1,2 are called mag
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cr/i_02_cr_vis/i_02_cr_vis.html" rel="some text"><img src="img/parvo_magno_brain_cut.jpg" alt="ganglionar cells pathways" /></a>
 </center>
 <center>
-    <i>Fig. 9. Parvo/Magno cellular layers</i>
+    <i>Fig. 10. Parvo/Magno cellular layers</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -161,7 +173,7 @@ M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell
 I tried to sum up in the diagram below the distribution of all cells, according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
 
 ![alt text](img/retina.png "Retina image")
-<center><i>Fig. 10. Retina layers</i></center>
+<center><i>Fig. 11. Retina layers</i></center>
 
 
 go further:
