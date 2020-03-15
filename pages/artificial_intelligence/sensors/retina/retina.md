@@ -4,7 +4,7 @@ The retina is the part of the eye that converts light into nerve impulses that i
 
 Plan
 - How light come to the retina
-- How the retina converts light into nerve impulses
+- How the retina capture light
 - Distribution of rods and cones
 - What processing is done in the retina
 - Connection with the brain
@@ -19,10 +19,19 @@ The eye works like a camera. The focus is made by the cornea and the lens. The a
 ![alt text](img/eye_rays.png "Eye image")
 <center><i>Fig. 2. Light through the eye </i></center>
 
-## How the retina convert light to nerve impulses
-There are two kinds of cells that can convert light into nerve impulses: cones and rods. They are called photoreceptors.
+## How the retina capture light
+There are two kinds of cells that can capture light and turn it into potential energy: cones and rods. They are called photoreceptors.
 
 These photoreceptors have photosensitive pigments whose form change when they are struck by light, causing a cascade of chemical reactions leading to a change of the membrane potential.
+
+<center>
+    <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_m/i_02_m_vis/i_02_m_vis.html" rel="some text"><img src="img/membrane potential_stimulus.jpg" alt="photoreceptor response to stimulus" /></a>
+</center>
+<center>
+    <i>Fig. 3. Photoreceptor response to stimulus</i>
+    <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
+</center>
+
 
 Cones photosensitive pigment is the opsin. There are three kinds of opsin that have sensitivity peaks around 419, 531 and 559 nanometers. Each cone contains mainly one kind of opsin. That is why we distinguish them in three categories: red cones (mainly 559 nm opsin), green cones (431 nm) and blue cones (419 nm).
 
@@ -32,7 +41,7 @@ Rods photosensitive pigment is the rhodopsin with a sensitivity peak around 500 
     <a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_m/a_02_m_vis/a_02_m_vis.html" rel="some text"><img src="img/cones_rods.jpg" alt="Color sensitivity" /></a>
 </center>
 <center>
-    <i>Fig. 3. Color sensitivity</i>
+    <i>Fig. 4. Color sensitivity</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -54,14 +63,14 @@ There are no rods in the center of the retina, only cones. This region is called
 <center>
 <a href="" rel="some text"><img src="img/eye_fovea_only.png" alt="Fovea location" /></a>
 </center>
-<center><i>Fig. 4. Fovea inside the macula</i></center>
+<center><i>Fig. 5. Fovea inside the macula</i></center>
 
 The more you get away from the fovea the more rods you have and the less cones there is until 18 degrees. You can see the distribution below:
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/cone_rod_distribution.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 5. Cones/rods densities</i>
+    <i>Fig. 6. Cones/rods densities</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -70,7 +79,7 @@ In the retina, they are mainly red and green cone. They are very few blue cones.
 <a href="https://commons.wikimedia.org/w/index.php?curid=32075732" rel="some text"><img src="img/ConeMosaics.jpg" alt="On/Off ganglionar cells" /></a>
 </center>
 <center>
-  <i>Fig. 6. Illustration of the distribution of cone cells in the fovea of an individual with normal color vision (left), and a color blind (protanopic) retina.</i>
+  <i>Fig. 7. Illustration of the distribution of cone cells in the fovea of an individual with normal color vision (left), and a color blind (protanopic) retina.</i>
   By Mark Fairchild, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
 </center>
 
@@ -85,13 +94,13 @@ The second one is the inner nuclear layer. It contains three kinds of cells: bip
 - Horizontal cells are connected with many rods, cones and bipolar cells. They cause lateral inhibition.
 - Amacrine cells have not a yet a clear role. They are connected to bipolar cells.
 
-The last main layer is the ganglion cell layer. It contains ganglionar cells. These cells send their axons to the optic nerve. They are the last cells before the brain. They are connected to bipolar cells and amacrine cells. They convert membrane potential from bipolar cells to action potential that the brain can process.
+The last main layer is the ganglion cell layer. It contains ganglionar cells. These cells send their axons to the optic nerve. They are the last cells before the brain. They are connected to bipolar cells and amacrine cells. They convert membrane potential from bipolar cells to action potential (impulses) that the brain can process.
 
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/retina_cells.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 6. Retina layers</i>
+    <i>Fig. 8. Retina layers</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -100,7 +109,7 @@ To get high acuity the ratio of ganglionar cells/photoreceptor should be low. Th
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/accuity.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 6. Accuity</i>
+    <i>Fig. 9. Accuity</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -109,7 +118,7 @@ We can divide the receptive field of one bipolar cell into two. A central recept
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/receptive_field.jpg" alt="Receptive field" /></a>
 </center>
 <center>
-    <i>Fig. 7. Receptive field</i>
+    <i>Fig. 10. Receptive field</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -122,7 +131,7 @@ This lead to two ganglionar cells categories: ON-Centre, OFF-Centre.
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/On_off_response.jpg" alt="On/Off ganglionar cells" /></a>
 </center>
 <center>
-    <i>Fig. 8. Receptive field</i>
+    <i>Fig. 11. Receptive field</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -134,7 +143,7 @@ It also respond to contours as shown in the figure bellow.
 <a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/contours.jpg" alt="On/Off ganglionar cells" /></a>
 </center>
 <center>
-    <i>Fig. 9. On-Centre Ganglionar cell response to contours</i>
+    <i>Fig. 12. On-Centre Ganglionar cell response to contours</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -159,7 +168,7 @@ Layers from 3 to 6 are called parvocellular layers and layers 1,2 are called mag
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cr/i_02_cr_vis/i_02_cr_vis.html" rel="some text"><img src="img/parvo_magno_brain_cut.jpg" alt="ganglionar cells pathways" /></a>
 </center>
 <center>
-    <i>Fig. 10. Parvo/Magno cellular layers</i>
+    <i>Fig. 13. Parvo/Magno cellular layers</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -173,7 +182,7 @@ M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell
 I tried to sum up in the diagram below the distribution of all cells, according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
 
 ![alt text](img/retina.png "Retina image")
-<center><i>Fig. 11. Retina layers</i></center>
+<center><i>Fig. 14. Retina layers</i></center>
 
 
 go further:
