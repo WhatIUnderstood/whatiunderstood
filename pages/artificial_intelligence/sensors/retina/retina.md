@@ -25,7 +25,7 @@ There are two kinds of cells that can capture light and turn it into potential e
 These photoreceptors have photosensitive pigments whose form change when they are struck by light, causing a cascade of chemical reactions leading to a change of the membrane potential.
 
 <center>
-    <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_m/i_02_m_vis/i_02_m_vis.html" rel="some text"><img src="img/membrane potential_stimulus.jpg" alt="photoreceptor response to stimulus" /></a>
+    <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_m/i_02_m_vis/i_02_m_vis.html" rel="some text"><img src="img/membrane_potential_stimulus.jpg" alt="photoreceptor response to stimulus" /></a>
 </center>
 <center>
     <i>Fig. 3. Photoreceptor response to stimulus</i>
@@ -104,21 +104,29 @@ The last main layer is the ganglion cell layer. It contains ganglionar cells. Th
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
+<center>
+<a href="https://www.researchgate.net/figure/Schematic-depicting-the-division-of-a-cone-signal-into-ON-and-OFF-pathways-The-ON_fig4_267306312" rel="some text"><img src="img/on_off_Pathways.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 9. ON OFF pathway (from [3])</i>
+</center>
+
 To get high acuity the ratio of ganglionar cells/photoreceptor should be low. That is why in the fovea one cone is connected to one ganglionar cell trough one bipolar cell. The further you get, the more cones and rods are indirectly linked to one ganglionar cell. The receptive field of a ganglionar cell is increasing while you go far from the fovea.
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/accuity.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 9. Accuity</i>
+    <i>Fig. 10. Accuity</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
+
 
 We can divide the receptive field of one bipolar cell into two. A central receptive field containing the photoreceptors directly connected to the bipolar cell and a peripheral receptive field which contains all photoreceptors relayed by the horizontal cell connected to this bipolar cell.
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/receptive_field.jpg" alt="Receptive field" /></a>
 </center>
 <center>
-    <i>Fig. 10. Receptive field</i>
+    <i>Fig. 11. Receptive field</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -131,7 +139,7 @@ This lead to two ganglionar cells categories: ON-Centre, OFF-Centre.
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/On_off_response.jpg" alt="On/Off ganglionar cells" /></a>
 </center>
 <center>
-    <i>Fig. 11. Receptive field</i>
+    <i>Fig. 12. Receptive field</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
@@ -143,16 +151,36 @@ It also respond to contours as shown in the figure bellow.
 <a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/contours.jpg" alt="On/Off ganglionar cells" /></a>
 </center>
 <center>
-    <i>Fig. 12. On-Centre Ganglionar cell response to contours</i>
+    <i>Fig. 13. On-Centre Ganglionar cell response to contours</i>
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
 According to their receptive field ganglionar cells (GCs) are split into at least 4 categories.
-- Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation. The fovea contains mainly midget cells.
+- Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation.
 - Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differentiate colors. They can only be used to send achromatic information. They represent 10% of all GCs.
 - Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They represents 8-10% of GCs
 
-In the fovea we found mainly midget cells (that is why we see very well colors in the center of our vision).
+<center>
+<a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/midget_parasol_cells.png" alt="midget, parasol and small bistratified cells" /></a>
+</center>
+<center>
+    <i>Fig. 14. dentric field diameter for ganglionar cells (Popović, Zoran. (2003). Neural limits of visual resolution.)</i>
+</center>
+
+
+
+In the fovea we found mainly midget cells 95% [2](that is why we see very well colors in the center of our vision).
+
+Outside the fovea we find only 45% midget cells [2].
+
+The responsive field from parasol cell seems to be 10 times larger than midget cells according to the graph below taken from [[2](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)] which show the dentric field diameter from non-midget and midget cells.
+<center>
+<a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/dentric_field_diameter.png" alt="On/Off ganglionar cells" /></a>
+</center>
+<center>
+    <i>Fig. 15. dentric field diameter for ganglionar cells (taken from [2])</i>
+</center>
+
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
@@ -184,6 +212,7 @@ I tried to sum up in the diagram below the distribution of all cells, according 
 ![alt text](img/retina.png "Retina image")
 <center><i>Fig. 14. Retina layers</i></center>
 
+If you want to go the the retina simulation I made follow [The retina modelisation](sensors/retina/retina.html) (redaction ongoing)
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
@@ -192,3 +221,13 @@ go further:
 ## Notes
 - The retina is as thick as a cigarette paper
 - Classic red/green colour blindness is the result of a lack of red cones in the retina
+
+## Biblio
+
+[1][the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
+
+[2] [Dacey, DM. "The mosaic of midget ganglion cells in the human retina." Journal of Neuroscience 13.12 (1993): 5334-5355. Web. 22 Mar. 2020.](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)
+
+[3] [Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
+
+...
