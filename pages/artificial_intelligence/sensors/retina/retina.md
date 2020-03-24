@@ -85,7 +85,7 @@ In the retina, they are mainly red and green cone. They are very few blue cones.
 
 
 ##  What processing is done in the retina
-Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occurring in the retina with different cells than cones and rods.
+Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occurring in the retina with different cells than cones and rods. That is why the optic nerve contains only 1.6 million fiber [4] for 125 million photo receptors.
 
 Their are three main layers in the retina. The one deepest in the retina is the outer segment layer. It contains the photoreceptors (cones and rods).
 
@@ -133,7 +133,7 @@ We can divide the receptive field of one bipolar cell into two. A central recept
 Near the fovea as one ganglionar cell is connected to one bipolar cell, the receptive field of the ganglionar cell is the same in this area.
 
 When a light spot is hitting only the center of a ganglionar cell receptive field, we see an opposite response than when the light hits the surrounding receptive field.
-This lead to two ganglionar cells categories: ON-Centre, OFF-Centre.
+This lead to two ganglionar cells categories: ON-Centre/OFF-surround, OFF-Centre/ON-surround.
 
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/On_off_response.jpg" alt="On/Off ganglionar cells" /></a>
@@ -155,10 +155,10 @@ It also respond to contours as shown in the figure bellow.
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-According to their receptive field ganglionar cells (GCs) are split into at least 4 categories.
+According to their receptive field ganglionar cells (GCs) are split into at least 3 categories.
 - Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation.
-- Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differentiate colors. They can only be used to send achromatic information. They represent 10% of all GCs.
-- Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They represents 8-10% of GCs
+- Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differentiate colors. They can only be used to send achromatic information like luminance. They represent 10% of all GCs.
+- Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They are good to compare S cones and L-M averaged cones [4]. They represents 8-10% of GCs.
 
 <center>
 <a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/midget_parasol_cells.png" alt="midget, parasol and small bistratified cells" /></a>
@@ -166,8 +166,6 @@ According to their receptive field ganglionar cells (GCs) are split into at leas
 <center>
     <i>Fig. 14. dentric field diameter for ganglionar cells (Popović, Zoran. (2003). Neural limits of visual resolution.)</i>
 </center>
-
-
 
 In the fovea we found mainly midget cells 95% [2](that is why we see very well colors in the center of our vision).
 
@@ -180,7 +178,6 @@ The responsive field from parasol cell seems to be 10 times larger than midget c
 <center>
     <i>Fig. 15. dentric field diameter for ganglionar cells (taken from [2])</i>
 </center>
-
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
@@ -200,12 +197,16 @@ Layers from 3 to 6 are called parvocellular layers and layers 1,2 are called mag
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
+There is also the Konio pathway which project on the ventral part of each parvo and magno layers. It is less understood than the two other pathways. It can be involved with seasonal mood change. It contains mainly bistratified cells [5].
 
-Ganglionar cells using the parvo pathway can be called P-Type cells. The ones using the magno pathway are called M-Type cells.
+
+Ganglionar cells using the parvo pathway can be called P-Type cells. The ones using the magno pathway are called M-Type cells. The same for the K-Type cells using the konio pathway.
 
 P-Type cells contains 80% of midget cells that is why we say that the parvo pathway allow us to see colors. It contains most of the fovea ganglionar cells responses.
 
 M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell composing m-type cells. It is the magno cellular pathway. It receives achromatic information.
+
+K-Type cells represent 8 to 10% of all ganglionar cells. They are mainly bistratified cells which receive S (blue cones) - LM (red and green) opposition informations.
 
 I tried to sum up in the diagram below the distribution of all cells, according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
 
@@ -229,5 +230,9 @@ go further:
 [2] [Dacey, DM. "The mosaic of midget ganglion cells in the human retina." Journal of Neuroscience 13.12 (1993): 5334-5355. Web. 22 Mar. 2020.](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)
 
 [3] [Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
+
+[4] [Yoonessi A, Yoonessi A. Functional assessment of magno, parvo and konio-cellular pathways; current state and future clinical applications. J Ophthalmic Vis Res. 2011;6(2):119–126.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306093/#)
+
+[5] [Carlos Carvajal, Thierry Viéville, Frédéric Alexandre. Konio Pathway: An Instinctive Visual Mecha-nism for Survival and Decision Making? Oct 2012, Bordeaux, France. hal-00756471](https://hal.inria.fr/hal-00756471/document)
 
 ...
