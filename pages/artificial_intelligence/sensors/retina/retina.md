@@ -213,7 +213,7 @@ I tried to sum up in the diagram below the distribution of all cells, according 
 ![alt text](img/retina.png "Retina image")
 <center><i>Fig. 14. Retina layers</i></center>
 
-If you want to go the the retina simulation I made follow [The retina modelisation](sensors/retina/retina.html) (redaction ongoing)
+If you want to go the the retina simulation I made follow [The retina modelisation](retina_modelisation.html) (redaction ongoing)
 
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
@@ -222,7 +222,11 @@ go further:
 ## Notes
 - The retina is as thick as a cigarette paper
 - Classic red/green colour blindness is the result of a lack of red cones in the retina
-
+- foveal position is 11.8° or or 3.4 mm temporal to the optic disk edge
+- The area of the human retina is 1,094 mm² [source](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
+- Diameter of the macula 3mm [source](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
+- fovea fully developed not before 4 years old [source](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
+- The field of view of on eye is arround 160° horizontally 175° vertically.
 ## Biblio
 
 [1][the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
