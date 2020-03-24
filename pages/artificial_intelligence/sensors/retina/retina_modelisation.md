@@ -1,4 +1,9 @@
-# Retina Modelisation from a Camera (redaction ongoing)
+---
+layout: default
+---
+
+# Retina Modelisation from a Camera
+ (redaction ongoing)
 
 This section describe one simulation of human retina from a standard camera (smartphone like cameras). I assume you already have read the page [The retina](sensors/retina/retina.html).
 
@@ -13,7 +18,6 @@ Plan
 - Bipolar cell modelisation ?
 - Ganglionar cells modelisation
   - Midget cells (ongoing)
-  -
 - Some numbers
 - Notes
 
@@ -71,24 +75,25 @@ First I need to find the angular field of view of my smartphone. I could not fin
     <i>Fig. 4. Camera field of view &alpha;  </i>
 </center>
 
-$\tan(\frac{\alpha}{2}) = \frac{L}{2D}$ [Eq 1] with:
+\begin{equation}\tan(\frac{\alpha}{2}) = \frac{L}{2D}\end{equation}
+ with:
 - $\alpha$ being the field of view
 - $L$ Object size
 - $D$ Distance to Object
 
-from [Eq 1] we can deduce that:
+from $(1)$ we can deduce that:
 
-$\alpha = 2\times\tan(\frac{L}{2D})$ [Eq 2]
+\begin{equation}alpha = 2\times\tan(\frac{L}{2D})\end{equation}
 
 With my phone camera, I measured $L = 480 mm$ and $D = 320mm$. This give an horizontal field of view around 74°
 
-To determine the diameter in pixels of 5° at the center of my camera ($p_f$), I need to use the formula [Eq 3] with $alpha_f = 5°$. It gives me 224 horizontal pixels. This means that there are **157 632** pixels in 5° disk ($\pi\times R^2$ with $R=224/2$).
+To determine the diameter in pixels of 5° at the center of my camera $(p_f)$, I need to use the formula $(3)$ with $alpha_f = 5°$. It gives me 224 horizontal pixels. This means that there are **157 632** pixels in 5° disk ( $\pi\times R^2$ with $R=224/2$ ).
 
-$p_f = total\_pixels\_width\times\frac{l_f}{L}$ [Eq 3]
+\begin{equation}p_f = \texttt{total_pixels_width}\times\frac{l_f}{L}\end{equation}
 
 with
 
-$l_f = 2\times D\tan(\frac{\alpha_f}{2})$ [Eq 4] deduced from [Eq 1].
+\begin{equation}l_f = 2\times D\tan(\frac{\alpha_f}{2})\end{equation} $(4)$ deduced from $(1)$.
 
 $l_f$ represent the maximum width of an object at a distance D that can be seen within $\alpha_f$ degrees
 
@@ -148,7 +153,7 @@ ON-center midget cells are covering the whole retina without overlap. The same i
 
 OFF-center cells have a smaller dentric field and higher cell density (1.7 times more [2]).
 
-| eccentricity (mm) | midget dentric field size ($\mu m$) | midget dentric field increase factor |
+| eccentricity (mm) | midget dentric field size $(\mu m)$ | midget dentric field increase factor |
 |:-:                |:-:                                  |:-:                                   |
 | 0 to 2            | 5-10                                | x 1                                  |
 | 2 to 6            | 50-80                               | x 10                                 |
