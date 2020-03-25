@@ -117,19 +117,19 @@ Outside the fovea, the cone density is 10.000 cones per mm². This part at least
 
 If we try to simulate as close as possible the human cone density, with a 4K camera with 74° FOV, we have the following table:
 
-| position      | pixel per cone ratio |simulated density | real cone density         | real max density  |
-|:-:            |:-:                   |:-:               |:-:                        |:-:                |
-| in fovea      | 0.20                 | 22 300 cones/mm² | 113 000 cones/mm² (avg)   | 150 000 cones/mm² |
-| outside fovea | 2.2                  | 10 000 cones/mm² | 10 000 cones/mm² (avg)    | 10 000 cones/mm²  |
+|   position    | pixel per cone ratio | simulated density |    real cone density    | real max density  |
+| :-----------: | :------------------: | :---------------: | :---------------------: | :---------------: |
+|   in fovea    |         0.20         | 22 300 cones/mm²  | 113 000 cones/mm² (avg) | 150 000 cones/mm² |
+| outside fovea |         2.2          | 10 000 cones/mm²  | 10 000 cones/mm² (avg)  | 10 000 cones/mm²  |
 
 Instead of having a factor 10 between the foveal density and outer density we have only a factor 2.
 
 For the simulation I preferred to keep this factor by decreasing the outer ratio. This means that my simulated retina is equivalent to a human eye that has lost 80% its cones. There are 2 ways to reduce this gap, by using a reduced field of view with a zoom or by using a camera with a higher resolution. For my use case it 'should' be enough so I kept this.
 
-| position      | pixel per cone ratio |simulated density | real cone density         | real max density  |
-|:-:            |:-:                   |:-:               |:-:                        |:-:                |
-| in fovea      | 0.20                 | 22 300 cones/mm² | 113 000 cones/mm² (avg)   | 150 000 cones/mm² |
-| outside fovea | 2.2 (11 for 2000)    |  2 000 cones/mm² | 10 000 cones/mm² (avg)    | 10 000 cones/mm²  |
+|   position    | pixel per cone ratio | simulated density |    real cone density    | real max density  |
+| :-----------: | :------------------: | :---------------: | :---------------------: | :---------------: |
+|   in fovea    |         0.20         | 22 300 cones/mm²  | 113 000 cones/mm² (avg) | 150 000 cones/mm² |
+| outside fovea |  2.2 (11 for 2000)   |  2 000 cones/mm²  | 10 000 cones/mm² (avg)  | 10 000 cones/mm²  |
 
 
 <center>
@@ -160,8 +160,24 @@ With 22 300/2000 distribution I have around 500 000 cones simulated. There is a 
 
 ### Cones types simulation (S, L, M)
 
-In the previous section only the cone distribution was considered not their type: blue, green, red (S,L,M). The proportion of cones inside the retina change a lot between two persons except the blue cones that represent only 5% of them.
-For the simulation I choose 70% L-Type cones, 25% M-Type cones and 5% S-Type cones.
+In the previous section only the cone distribution was considered not their type: blue, green, red (S,M,L). The proportion of cones inside the retina change a lot between two persons except the blue cones that represent only 5% of them.
+For the simulation I choose 70% M-Type cones, 25% L-Type cones and 5% S-Type cones.
+
+<center>
+<a href="" rel=""><img src="img/cone_map.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 6. Cones Mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
+</center>
+
+<center>
+<a href="" rel=""><img src="img/cone_map_zoom.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 7. Zoom on cones mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
+</center>
+
+
 
 The real cone response is a membrane potential change that decrease rapidly. With the pixel we have a value between 0 and 254 that is stable under constant illumination. I will handle these differences by changing the processing of the upper layer (in next sections).
 
@@ -169,7 +185,7 @@ The real cone response is a membrane potential change that decrease rapidly. Wit
 <a href="" rel="some text"><img src="img/photo_receptor_colors.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 6. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
+    <i>Fig. 7. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
 </center>
 
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
@@ -215,23 +231,23 @@ ON-center midget cells are covering the whole retina without overlap. The same i
 OFF-center cells have a smaller dentric field and higher cell density (1.7 times more [2]).
 
 | eccentricity (mm) | midget dentric field size $(\mu m)$ | midget dentric field increase factor |
-|:-:                |:-:                                  |:-:                                   |
-| 0 to 2            | 5-10                                | x 1                                  |
-| 2 to 6            | 50-80                               | x 10                                 |
-| more              | up to 225                           | x 30 - 40                            |
+| :---------------: | :---------------------------------: | :----------------------------------: |
+|      0 to 2       |                5-10                 |                 x 1                  |
+|      2 to 6       |                50-80                |                 x 10                 |
+|       more        |              up to 225              |              x 30 - 40               |
 
 
 | eccentricity (mm) | % of midget cells among all GCs | count |
-|:-:                |:-:                              |:-:    |
-| 0 to 1.5          | 95%                             |       |
-| more              | 45%                             |       |
+| :---------------: | :-----------------------------: | :---: |
+|     0 to 1.5      |               95%               |       |
+|       more        |               45%               |       |
 
 $spacing = 0.1^{(e+1)}$ ? http://www.rctn.org/bruno/psc129/handouts/size-sampling/size-sampling.html
-| eccentricity (mm) | spacing | count       |
-|:-:                |:-:      |:-:          |
-| 0 to 1.5          |         |             |
-| 2                 |         |             |
-| more              |         |             |
+| eccentricity (mm) | spacing | count |
+| :---------------: | :-----: | :---: |
+|     0 to 1.5      |         |       |
+|         2         |         |       |
+|       more        |         |       |
 
 
 <center>
@@ -290,23 +306,23 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 
 - Ganglion cells develop a high frequency (~100 Hz) oscillatory firing pattern when presented with localized bright stimuli. [5]
 
-| position      | diameter      | field of view ° | cone density |
-|:-:            |:-:            |:-:              |:-:           |
-| fovea FAZ     | 0.5 mm        | 1.5°            | $150 000/mm2$|
-| fovea total   | 1.2 mm        | 5°              |              |
-| macula        | ~ 3mm         |                 |              |
+|  position   | diameter | field of view ° | cone density  |
+| :---------: | :------: | :-------------: | :-----------: |
+|  fovea FAZ  |  0.5 mm  |      1.5°       | $150 000/mm2$ |
+| fovea total |  1.2 mm  |       5°        |               |
+|   macula    |  ~ 3mm   |                 |               |
 
-| position      | ratio GC/cone |
-|:-:            |:-:            |
-| 2.2°          | 2:1           |
+| position | ratio GC/cone |
+| :------: | :-----------: |
+|   2.2°   |      2:1      |
 
 
 | diameter | field of view ° |
-|:-:       |:-:              |
-| 0.5 mm   | 1.5°            |
-| 1.2 mm   | 5°              |
-| 1.7 mm   | 6°              |
-| 5.5 mm   | 17°             |
+| :------: | :-------------: |
+|  0.5 mm  |      1.5°       |
+|  1.2 mm  |       5°        |
+|  1.7 mm  |       6°        |
+|  5.5 mm  |       17°       |
 
 0.5 mm representing 1.5°
 
