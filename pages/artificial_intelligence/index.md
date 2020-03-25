@@ -1,6 +1,10 @@
-## What I understood during my quest to build a strong artificial intelligence
+---
+layout: default
+---
 
-### Building a biomimetic brain
+# Quest to build a strong artificial intelligence
+
+## Building a biomimetic brain
 My goal here is to **build a real time biomimetic brain**. That means that I will try to virtually replicate a real human brain. I hope to create an intelligence while doing it.
 
 Why realtime? I want it to learn something before I die ^^.
