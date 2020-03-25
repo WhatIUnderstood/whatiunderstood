@@ -12,7 +12,8 @@ Just to recap the context of this simulation, my final goal is to create a biomi
 Plan
 - [Retina Modelisation from a Camera](#retina-modelisation-from-a-camera)
   - [Photo Receptors Simulation](#photo-receptors-simulation)
-    - [Cones inside the Fovea](#cones-inside-the-fovea)
+    - [Pixel density equivalence](#pixel-density-equivalence)
+    - [Cones density inside the Fovea](#cones-density-inside-the-fovea)
     - [Outside of the fovea](#outside-of-the-fovea)
     - [Simulated cones distribution](#simulated-cones-distribution)
     - [Pixel limitations](#pixel-limitations)
@@ -22,7 +23,7 @@ Plan
     - [How many Ganglionar cells](#how-many-ganglionar-cells)
     - [How many cones per parasol cells?](#how-many-cones-per-parasol-cells)
   - [Notes](#notes)
-- [Biblio](#biblio)
+  - [Biblio](#biblio)
 
 ----------------------------------------------------------
 ## Photo Receptors Simulation
@@ -56,23 +57,13 @@ The main issue is to consider the repartition of the cones inside the retina!
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-### Cones inside the Fovea
+### Pixel density equivalence
+The pixel density per mm² is constant in a camera. They form a grid with a constant space between them. However, we cannot use the real pixel density directly because the focal length is not the same as the one in the eye.
+To get an equivalence with the cone density, we need to determine how many pixels there are in 5° which represent the fovea surface (1.5mm diameter). This number is mainly dependent on 2 properties of the camera: the resolution and the field of view.  I will use a 4K smartphone camera as example.
 
-The fovea area contains approximately 200 000 cones [7] with a field of view around 5°.
-
-We can estimate the diameter of the fovea in 'cones' using the area of a disc.
-
-The fovea has a diameter of $\sqrt(\frac{200.000}{\pi})\times2 \approx 504$ cones which represents $1.5mm$
-
-We need to determine 2 values:
-- how many pixel per cones inside the fovea
-- how many pixel per cones outside the fovea
-
-Let see how many pixels we have in 5° with a 4K camera from a smartphone.
-
-First I need to find the angular field of view of my smartphone. I could not find mine in the datasheet so estimated it. To do this chose an object, I positioned the camera so that the object took exactly the width of my camera view. Then I used simple trigonometry relations.
+First you need to find the angular field of view of your camera. I could not find mine in the datasheet so estimated it. To do this choose an object, put your camera so that the object takes exactly the width of your camera view. Then use simple trigonometry relations $(1) (2)$.
 <center>
-<a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/pinhole.jpg" alt="Cones/Rods distribution" /></a>
+<a href="" rel="some text"><img src="img/pinhole.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
     <i>Fig. 4. Camera field of view &alpha;  </i>
@@ -86,40 +77,64 @@ First I need to find the angular field of view of my smartphone. I could not fin
 
 from $(1)$ we can deduce that:
 
-\begin{equation}alpha = 2\times\tan(\frac{L}{2D})\end{equation}
+\begin{equation}alpha = 2\times\arctan(\frac{L}{2D})\end{equation}
 
 With my phone camera, I measured $L = 480 mm$ and $D = 320mm$. This give an horizontal field of view around 74°
 
-To determine the diameter in pixels of 5° at the center of my camera $(p_f)$, I need to use the formula $(3)$ with $alpha_f = 5°$. It gives me 224 horizontal pixels. This means that there are **157 632** pixels in 5° disk ( $\pi\times R^2$ with $R=224/2$ ).
+To get the pixel density equivalence we need to divide the number of pixels within 5° by the equivalent surface in the retina: 1.5mm².
 
-\begin{equation}p_f = \texttt{total_pixels_width}\times\frac{l_f}{L}\end{equation}
+To determine the diameter in pixels of 5° at the center of your camera $(d_p)$, you can use the formula $(3)$ with $alpha_f = 5°$. In my case, it gives me 224 horizontal pixels. This means that there are **39408** pixels in 5° disk ( $\pi\times R^2$ with $R=224/2$ ).
+
+\begin{equation}d_p = \texttt{total_pixels_width}\times\frac{l_f}{L}\end{equation}
 
 with
 
-\begin{equation}l_f = 2\times D\tan(\frac{\alpha_f}{2})\end{equation} $(4)$ deduced from $(1)$.
+\begin{equation}l_f = 2\times D\tan(\frac{\alpha_f}{2})\end{equation}
 
-$l_f$ represent the maximum width of an object at a distance D that can be seen within $\alpha_f$ degrees
+$(4)$ deduced from $(1)$. $l_f$ represent the maximum width of an object at a distance D that can be seen within $\alpha_f$ degrees
 
-To recap, there are 200.000 cones vs 157 632 pixels in the fovea. I can only represent 79% of the cones in the fovea. The overall cone density inside the fovea is 88.880 cones/mm² with the camera we can reach only 70 058 cones/mm² *Here I made the assumption that the density of cones were constant in the fovea however it is not the case. There is an area called FAZ (foveal avascular zone) that has a higher density. I flatten this because the camera is already overwhelmed ...*
+Now that we have the total number of pixels in 5° we can just divide it by 1.5mm² to get the equivalent pixel density. Note in the equation below I used directly the diameter instead of the radius but its equivalent.
+
+\begin{equation}\texttt{pix_equ_density} = \frac{\pi\times d_p^2}{\pi\times 1.5^2}\end{equation}
+
+
+In conclusion, the equivalent pixel density of the smartphone is **22 300 pixels/mm² inside the retina**
+
+### Cones density inside the Fovea
+The cone density in the fovea peaks at 150 000 cones/mm² in FAZ (foveal avascular zone) and decrease quickly.
+The total fovea area contains approximately 200 000 cones [7] with a field of view around 5°. We can deduce that the average density inside the fovea is 113 000 cone/mm² ($\frac{200000}{\pi\times (\frac{1.5}{1})^2}$)
+
+With the 4K camera I have no choice but to under sample the foveal cone density by a factor 0.20 ($\frac{22 300}{113000}$)
+
+To get another view on the difference their are 39400 pixels vs 200 000 cones!
 
 ### Outside of the fovea
 
-Outside the fovea, the cone density is 10.000 cones per mm². In a surface equivalent to the fovea this represent $\pi \times \frac{1.5}{2}^2*10 000 = 17 671$ cones with a diameter of $\sqrt(\frac{17 671}{\pi})\times2 \approx 150$. The ratio pixels per cone is 8.9
+Outside the fovea, the cone density is 10.000 cones per mm². This part at least we can simulate it without downsampling by using one pixel out of two.
 
 ### Simulated cones distribution
 
-As we does not have enough pixels in the fovea I decided to flatten the retina peak and I linearized the transition (for simplicity)
+If we try to simulate as close as possible the human cone density we have the following table:
+| position      | pixel per cone ratio |simulated density | real cone density         | real max density  |
+|:-:            |:-:                   |:-:               |:-:                        |:-:                |
+| in fovea      | 0.20                 | 22 300 cones/mm² | 113 000 cones/mm² (avg)   | 150 000 cones/mm² |
+| outside fovea | 2.2                  | 10 000 cones/mm² | 10 000 cones/mm² (avg)    | 10 000 cones/mm²  |
+
+Instead of having a factor 10 between the foveal density and outer density we have only a factor 2.
+
+For the simulation I preferred to keep this factor by decreasing the outer ratio. This means that my simulated retina is equivalent to a human eye that has lost 80% its cones. There are 2 ways to reduce this gap, by using a reduced field of view with a zoom or by using a camera with a higher resolution. For my use case it 'should' be enough so I kept this.
 
 | position      | pixel per cone ratio |simulated density | real cone density         | real max density  |
 |:-:            |:-:                   |:-:               |:-:                        |:-:                |
-| in fovea      | 0.79                 | 70 058 cones/mm² | 88 888 cones/mm² (avg)    | 150 000 cones/mm² |
-| outside fovea | 8.9                  | 10 000 cones/mm² | 10 000 cones/mm² (avg)    | 10 000 cones/mm²  |
+| in fovea      | 0.20                 | 22 300 cones/mm² | 113 000 cones/mm² (avg)   | 150 000 cones/mm² |
+| outside fovea | 2.2 (11 for 2000)    |  2 000 cones/mm² | 10 000 cones/mm² (avg)    | 10 000 cones/mm²  |
+
 
 <center>
-<a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/cone_simulated_distribution.png" alt="Cones/Rods distribution" /></a>
+<a href="" rel="some text"><img src="img/cone_simulated_distribution.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 3. Simulated Cones density from a 4K camrea with a fov of 74°</i>
+    <i>Fig. 3. Simulated Cones density from a 4K camera with a fov of 74°</i>
 </center>
 
 ### Pixel limitations
@@ -252,7 +267,7 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 
 0.5 mm representing 1.5°
 
-# Biblio
+## Biblio
 
 [1][The brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 
