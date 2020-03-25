@@ -115,6 +115,7 @@ Outside the fovea, the cone density is 10.000 cones per mm². This part at least
 ### Simulated cones distribution
 
 If we try to simulate as close as possible the human cone density, with a 4K camera with 74° FOV, we have the following table:
+
 | position      | pixel per cone ratio |simulated density | real cone density         | real max density  |
 |:-:            |:-:                   |:-:               |:-:                        |:-:                |
 | in fovea      | 0.20                 | 22 300 cones/mm² | 113 000 cones/mm² (avg)   | 150 000 cones/mm² |
