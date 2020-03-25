@@ -7,25 +7,30 @@ layout: default
 The retina is the part of the eye that converts light into nerve impulses that is sent to the brain through the optical nerve.
 
 Plan
-- How light come to the retina
-- How the retina capture light
-- Distribution of rods and cones
-- What processing is done in the retina
-- Connection with the brain
-- Notes
+
+- [The Retina](#the-retina)
+  - [How light come to the retina](#how-light-come-to-the-retina)
+  - [How the retina capture light](#how-the-retina-capture-light)
+  - [Distribution of cones and rods](#distribution-of-cones-and-rods)
+  - [What processing is done in the retina](#what-processing-is-done-in-the-retina)
+  - [Connection with the brain](#connection-with-the-brain)
+  - [Notes](#notes)
+  - [Biblio](#biblio)
+
 
 ![Eye anatomy](img/eye.png "Eye anatomy")
 <center><i>Fig. 1. Eye anatomy </i></center>
 
-## How light come to the retina
 ----------------------------------------
+## How light come to the retina
+
 The eye works like a camera. The focus is made by the cornea and the lens. The aperture is controlled by the iris that can reduce or increase the quantity of light coming into the eye. Finally the sensor that converts light into nerve impulses is the retina.
 
 ![alt text](img/eye_rays.png "Eye image")
 <center><i>Fig. 2. Light through the eye </i></center>
 
-## How the retina capture light
 ----------------------------------------
+## How the retina capture light
 There are two kinds of cells that can capture light and turn it into potential energy: cones and rods. They are called photoreceptors.
 
 These photoreceptors have photosensitive pigments whose form change when they are struck by light, causing a cascade of chemical reactions leading to a change of the membrane potential.
@@ -61,6 +66,7 @@ External link to go further:
 - [phtoreceptor description](https://thebrain.mcgill.ca/flash/d/d_02/d_02_m/d_02_m_vis/d_02_m_vis.html)
 - [light to to nerve impulses](https://thebrain.mcgill.ca/flash/i/i_02/i_02_m/i_02_m_vis/i_02_m_vis.html#2)
 
+----------------------------------------
 ## Distribution of cones and rods
 They are 125 million photoreceptors in the retina: 120 million rods and 5 million cones. However, they are not distributed evenly.
 
@@ -89,8 +95,9 @@ In the retina, they are mainly red and green cone. They are very few blue cones.
   By Mark Fairchild, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>
 </center>
 
+
+--------------------------------------------------------------------------------
 ##  What processing is done in the retina
-----------------------------------------
 Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occurring in the retina with different cells than cones and rods. That is why the optic nerve contains only 1.6 million fiber [4] for 125 million photo receptors.
 
 Their are three main layers in the retina. The one deepest in the retina is the outer segment layer. It contains the photoreceptors (cones and rods).
@@ -189,8 +196,8 @@ go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 - [wikipedia](https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
 
-## Connection with the brain
 ----------------------------------------
+## Connection with the brain
 
 The main entry point of the GCs axons in the brain is the lateral geniculate nucleus (LGN). 80% of GCs end up there. There are six layers in the LGN and we can see that most of the midget cell ends in the layers 3,4,5,6 and the parasol cell in the 1 and 2.
 
@@ -226,8 +233,8 @@ go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 - [wikipedia](https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
 
-## Notes
 ----------------------------------------
+## Notes
 - The retina is as thick as a cigarette paper
 - Classic red/green colour blindness is the result of a lack of red cones in the retina
 - foveal position is 11.8° or or 3.4 mm temporal to the optic disk edge
@@ -237,8 +244,8 @@ go further:
 - The field of view of on eye is arround 160° horizontally 175° vertically.
 
 
-## Biblio
 ----------------------------------------
+## Biblio
 
 [1][the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 

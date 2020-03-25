@@ -10,19 +10,22 @@ This section describe one simulation of human retina from a standard camera (sma
 Just to recap the context of this simulation, my final goal is to create a biomimetic artificial intelligence using biomimetic sensors (like the retina).
 
 Plan
-- Photo receptors simulation
-  - Cones inside the Fovea
-  - Cones outside the Fovea
-  - Simulated cones distribution
-  - Pixel limitations
-- Bipolar cell modelisation ?
-- Ganglionar cells modelisation
-  - Midget cells (ongoing)
-- Some numbers
-- Notes
+- [Retina Modelisation from a Camera](#retina-modelisation-from-a-camera)
+  - [Photo Receptors Simulation](#photo-receptors-simulation)
+    - [Cones inside the Fovea](#cones-inside-the-fovea)
+    - [Outside of the fovea](#outside-of-the-fovea)
+    - [Simulated cones distribution](#simulated-cones-distribution)
+    - [Pixel limitations](#pixel-limitations)
+  - [Bipolar cell modelisation ?](#bipolar-cell-modelisation)
+  - [Ganglionar cells modelisation (redaction ongoing)](#ganglionar-cells-modelisation-redaction-ongoing)
+    - [Midget cells](#midget-cells)
+    - [How many Ganglionar cells](#how-many-ganglionar-cells)
+    - [How many cones per parasol cells?](#how-many-cones-per-parasol-cells)
+  - [Notes](#notes)
+- [Biblio](#biblio)
 
 ----------------------------------------------------------
-## Photo receptors simulation
+## Photo Receptors Simulation
 
 As you may remember there are around 125 million photoreceptors in the retina: 120 million rods and between 4 and 5 million cones. As rods are saturated during days, I won't consider them. I will only simulate cones.
 
@@ -142,9 +145,9 @@ All the main ganglionar cells has a similar ON/OFF-center and ON/OFF-surround. T
 
 I will present the modelization of Midget cells, parasol cells and finally konio cells.
 
--------------------------
+
 Do Not read below (if you want to keep your mind safe), for the moment it is just notes.
--------------------------
+
 
 
 ### Midget cells
