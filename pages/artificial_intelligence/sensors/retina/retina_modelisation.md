@@ -5,7 +5,7 @@ layout: default
 # Retina Modelisation from a Camera
  (redaction ongoing)
 
-This section describe one simulation of human retina from a standard camera (smartphone like cameras). I assume you already have read the page [The retina](sensors/retina/retina.html).
+This section describe one simulation of human retina from a standard camera (smartphone like cameras). I assume you already have read the page [The retina](retina.html).
 
 Just to recap the context of this simulation, my final goal is to create a biomimetic artificial intelligence using biomimetic sensors (like the retina).
 
