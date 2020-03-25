@@ -14,6 +14,7 @@ Plan
   - [Distribution of cones and rods](#distribution-of-cones-and-rods)
   - [What processing is done in the retina](#what-processing-is-done-in-the-retina)
   - [Connection with the brain](#connection-with-the-brain)
+  - [Retina simulation](#retina-simulation)
   - [Notes](#notes)
   - [Biblio](#biblio)
 
@@ -227,11 +228,13 @@ I tried to sum up in the diagram below the distribution of all cells, according 
 ![alt text](img/retina.png "Retina image")
 <center><i>Fig. 14. Retina layers</i></center>
 
-If you want to go the the retina simulation I made follow [The retina modelisation](retina_modelisation.html) (redaction ongoing)
-
 go further:
 - [the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 - [wikipedia](https://en.wikipedia.org/wiki/Retinal_ganglion_cell)
+
+----------------------------------------
+## Retina simulation
+I made a page on a retina simulation from a camera: [retina modelisation](retina_modelisation.html) (redaction ongoing)
 
 ----------------------------------------
 ## Notes
@@ -242,7 +245,6 @@ go further:
 - Diameter of the macula 3mm [source](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
 - fovea fully developed not before 4 years old [source](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
 - The field of view of on eye is arround 160° horizontally 175° vertically.
-
 
 ----------------------------------------
 ## Biblio
