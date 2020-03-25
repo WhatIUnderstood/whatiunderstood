@@ -15,7 +15,8 @@ Plan
     - [Pixel density equivalence](#pixel-density-equivalence)
     - [Cones density inside the Fovea](#cones-density-inside-the-fovea)
     - [Outside of the fovea](#outside-of-the-fovea)
-    - [Simulated cones distribution](#simulated-cones-distribution)
+    - [Cones distribution simulation](#cones-distribution-simulation)
+    - [Cones types simulation (S, L, M)](#cones-types-simulation-s-l-m)
     - [Pixel limitations](#pixel-limitations)
   - [Bipolar cell modelisation ?](#bipolar-cell-modelisation)
   - [Ganglionar cells modelisation (redaction ongoing)](#ganglionar-cells-modelisation-redaction-ongoing)
@@ -112,7 +113,7 @@ To get another view on the difference their are 39400 pixels vs 200 000 cones!
 
 Outside the fovea, the cone density is 10.000 cones per mm². This part at least we can simulate it without downsampling by using one pixel out of two.
 
-### Simulated cones distribution
+### Cones distribution simulation
 
 If we try to simulate as close as possible the human cone density, with a 4K camera with 74° FOV, we have the following table:
 
@@ -156,6 +157,28 @@ With 22 300/2000 distribution I have around 500 000 cones simulated. There is a 
 - the subsampling the cones
 - the field of view of the camera is only 74° against 160° for the eye
 - the vertical Field Of View is lower than the horizontal one
+
+### Cones types simulation (S, L, M)
+
+In the previous section only the cone distribution was considered not their type: blue, green, red (S,L,M). The proportion of cones inside the retina change a lot between two persons except the blue cones that represent only 5% of them.
+For the simulation I choose 70% L-Type cones, 25% M-Type cones and 5% S-Type cones.
+
+The real cone response is a membrane potential change that decrease rapidly. With the pixel we have a value between 0 and 254 that is stable under constant illumination. I will handle these differences by changing the processing of the upper layer (in next sections).
+
+<center>
+<a href="" rel="some text"><img src="img/photo_receptor_colors.jpg" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 6. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
+</center>
+
+I also made a video of the cone simulation. The camera pass over green, blue and red objects.
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kNYYPoeiTLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+<center>
+    <i>Vid. 1. Cones L-Type M-Type and S-Type simulation over different objects with different colors.</i>
+</center>
 
 ### Pixel limitations
 
