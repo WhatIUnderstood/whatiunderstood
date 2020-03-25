@@ -114,7 +114,7 @@ Outside the fovea, the cone density is 10.000 cones per mm². This part at least
 
 ### Simulated cones distribution
 
-If we try to simulate as close as possible the human cone density we have the following table:
+If we try to simulate as close as possible the human cone density, with a 4K camera with 74° FOV, we have the following table:
 | position      | pixel per cone ratio |simulated density | real cone density         | real max density  |
 |:-:            |:-:                   |:-:               |:-:                        |:-:                |
 | in fovea      | 0.20                 | 22 300 cones/mm² | 113 000 cones/mm² (avg)   | 150 000 cones/mm² |
@@ -136,6 +136,25 @@ For the simulation I preferred to keep this factor by decreasing the outer ratio
 <center>
     <i>Fig. 3. Simulated Cones density from a 4K camera with a fov of 74°</i>
 </center>
+
+<center>
+<a href="" rel="some text"><img src="img/cone_mono_sampling.jpg" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 4. The background is the 4K monochrome image. In the top left you can see the cone simulation. The ratio between the two images are respected</i>
+</center>
+
+<center>
+<a href="" rel="some text"><img src="img/cones_output_00316.jpg" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 5. Simulated Cones sampling from a 4K camera with a fov of 74°</i>
+</center>
+
+With 22 300/2000 distribution I have around 500 000 cones simulated. There is a factor 10 with the real retina due to:
+- the subsampling the cones
+- the field of view of the camera is only 74° against 160° for the eye
+- the vertical Field Of View is lower than the horizontal one
 
 ### Pixel limitations
 
