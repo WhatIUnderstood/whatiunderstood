@@ -147,14 +147,14 @@ For the simulation I preferred to keep this factor by decreasing the outer ratio
 </center>
 
 <center>
-<a href="" rel="some text"><img src="img/cones_output_00316.jpg" alt="Cones/Rods distribution" /></a>
+<a href="" rel="some text"><img src="img/cones_output.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 5. Simulated Cones sampling from a 4K camera with a fov of 74°</i>
+    <i>Fig. 5. Simulated Cones sampling from a 4K camera with a fov of 74° (576 x 432)</i>
 </center>
 
-With 22 300/2000 distribution I have around 500 000 cones simulated. There is a factor 10 with the real retina due to:
-- the subsampling the cones
+With 22 300/2000 distribution I have around 240 000 cones simulated which represent only 4.8% of the 5 000 000 cones. There is a factor 20 with the real retina due to:
+- the subsampling the cones which removes 80% of them
 - the field of view of the camera is only 74° against 160° for the eye
 - the vertical Field Of View is lower than the horizontal one
 
@@ -182,7 +182,7 @@ For the simulation I choose 70% M-Type cones, 25% L-Type cones and 5% S-Type con
 The real cone response is a membrane potential change that decrease rapidly. With the pixel we have a value between 0 and 254 that is stable under constant illumination. I will handle these differences by changing the processing of the upper layer (in next sections).
 
 <center>
-<a href="" rel="some text"><img src="img/photo_receptor_colors.jpg" alt="Cones/Rods distribution" /></a>
+<a href="" rel="some text"><img src="img/photo_receptor_colors.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
     <i>Fig. 7. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
@@ -190,7 +190,7 @@ The real cone response is a membrane potential change that decrease rapidly. Wit
 
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kNYYPoeiTLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LK4tsv8Rbtw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <center>
     <i>Vid. 1. Cones L-Type M-Type and S-Type simulation over different objects with different colors.</i>
