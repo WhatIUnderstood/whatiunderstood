@@ -12,19 +12,27 @@ Just to recap the context of this simulation, my final goal is to create a biomi
 Plan
 - [Retina Modelisation from a Camera](#retina-modelisation-from-a-camera)
   - [Photo Receptors Simulation](#photo-receptors-simulation)
-    - [Pixel density equivalence](#pixel-density-equivalence)
-    - [Cones density inside the Fovea](#cones-density-inside-the-fovea)
-    - [Outside of the fovea](#outside-of-the-fovea)
-    - [Cones distribution simulation](#cones-distribution-simulation)
+    - [Pixel density](#pixel-density)
+      - [Estimate camera focal and field of view](#estimate-camera-focal-and-field-of-view)
+      - [Determine pixel density in $deg^{-2}$](#determine-pixel-density-in-mathsemanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
+    - [Convert cone density in $deg^{-2}$](#convert-cone-density-in-mathsemanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
+    - [Pixel vs Cone density](#pixel-vs-cone-density)
+    - [Pixels by cone](#pixels-by-cone)
+    - [Simulation quantitative differences](#simulation-quantitative-differences)
+    - [Simulation visual result (On going TODO)](#simulation-visual-result-on-going-todo)
     - [Cones types simulation (S, L, M)](#cones-types-simulation-s-l-m)
     - [Pixel limitations](#pixel-limitations)
   - [Bipolar cell modelisation ?](#bipolar-cell-modelisation)
   - [Ganglionar cells modelisation (redaction ongoing)](#ganglionar-cells-modelisation-redaction-ongoing)
     - [Midget cells](#midget-cells)
+      - [Midget cells distribution](#midget-cells-distribution)
+    - [bistratified cells](#bistratified-cells)
     - [How many Ganglionar cells](#how-many-ganglionar-cells)
     - [How many cones per parasol cells?](#how-many-cones-per-parasol-cells)
   - [Notes](#notes)
   - [Biblio](#biblio)
+  - [Annex](#annex)
+    - [Conversion of eccentricities in millimeters to degrees](#conversion-of-eccentricities-in-millimeters-to-degrees)
 
 ----------------------------------------------------------
 ## Photo Receptors Simulation
@@ -58,17 +66,25 @@ The main issue is to consider the repartition of the cones inside the retina!
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-### Pixel density equivalence
-The pixel density per mm² is constant in a camera. They form a grid with a constant space between them. However, we cannot use the real pixel density directly because the focal length is not the same as the one in the eye.
-To get an equivalence with the cone density, we need to determine how many pixels there are in 5° which represent the fovea surface (1.5mm diameter). This number is mainly dependent on 2 properties of the camera: the resolution and the field of view.  I will use a 4K smartphone camera as example.
+### Pixel density
 
-First you need to find the angular field of view of your camera. I could not find mine in the datasheet so estimated it. To do this choose an object, put your camera so that the object takes exactly the width of your camera view. Then use simple trigonometry relations $(1) (2)$.
+The pixel density per mm² is constant in a camera. They form a grid with a constant space between them. However, we cannot use the real pixel density directly because the focal length is not the same with the one in the eye. One solution to get rid of this issue, is to work with densities per degree². To illustrate this part I used a 4K smartphone camera.
+
+#### Estimate camera focal and field of view
+
+To find the pixel density we first need some details about the camera: its field of view, and its focal length in pixels.
+
+If like me, you cannot find the focal length of your camera nor the field of view, you can estimate it with the procedure below.
+
+First, choose an object, put your camera so that the object takes exactly the width of your camera view. Note the values L and D.
 <center>
 <a href="" rel="some text"><img src="img/pinhole.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
     <i>Fig. 4. Camera field of view &alpha;  </i>
 </center>
+
+Then by using simple trigonometry relations $(1) (2)$ we can determine the field of view $\alpha$
 
 \begin{equation}\tan(\frac{\alpha}{2}) = \frac{L}{2D}\end{equation}
  with:
@@ -80,57 +96,68 @@ from $(1)$ we can deduce that:
 
 \begin{equation}alpha = 2\times\arctan(\frac{L}{2D})\end{equation}
 
-With my phone camera, I measured $L = 480 mm$ and $D = 320mm$. This give an horizontal field of view around 74°
+With my phone camera, I measured $L = 480 mm$ and $D = 320mm$. This give an horizontal field of view around 74°.
 
-To get the pixel density equivalence we need to divide the number of pixels within 5° by the equivalent surface in the retina: 1.5mm².
+To get the focal length in pixel unit, just use $(1)$ with L being your pixel width and D your focal.
 
-To determine the diameter in pixels of 5° at the center of your camera $(d_p)$, you can use the formula $(3)$ with $alpha_f = 5°$. In my case, it gives me 224 horizontal pixels. This means that there are **39408** pixels in 5° disk ( $\pi\times R^2$ with $R=224/2$ ).
+$f_{pix}=\frac{pixel\_width}{2*\tan(\frac{\alpha_{fov}}{2})}$
 
-\begin{equation}d_p = \texttt{total_pixels_width}\times\frac{l_f}{L}\end{equation}
+with:
+- $f_{pix}$ focal in pixel
+- $\alpha_{fov}$ fov measured in the previous step
+
+On the 4K camera I found $f_{pix}=2548$ pixels.
+
+#### Determine pixel density in $deg^{-2}$
+
+With the camera focal, in pixels unit, we can estimate the number of pixels along a 1° line, at any eccentricity:
+
+\begin{equation}g(ecc)=f_{pix}*(\tan(ecc+0.5)-\tan(ecc-0.5))\end{equation}
 
 with
+- $ecc$ eccentricity in degrees
+- $f_{pix}$ focal in pixel unit
 
-\begin{equation}l_f = 2\times D\tan(\frac{\alpha_f}{2})\end{equation}
+To get an estimation of the density we just have to square the function above
 
-$(4)$ deduced from $(1)$. $l_f$ represent the maximum width of an object at a distance D that can be seen within $\alpha_f$ degrees
+\begin{equation}d_{pix}(ecc)=g(ecc)^{2}\end{equation}
 
-Now that we have the total number of pixels in 5° we can just divide it by 1.5mm² to get the equivalent pixel density. Note in the equation below I used directly the diameter instead of the radius but its equivalent.
+<center>
+<a href="" rel=""><img src="img/pixel_density_deg.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 4. Pixel density of a smartphone 4K camera</i>
+</center>
 
-\begin{equation}\texttt{pix_equ_density} = \frac{\pi\times d_p^2}{\pi\times 1.5^2}\end{equation}
+### Convert cone density in $deg^{-2}$
 
+To compare retinal and camera densities I converted all retinal densities from mm² to degree². To do this I used the polynomial approximation of Andrew B. Watson [10], based on Drasdo and Fowler [11] work.
 
-In conclusion, the equivalent pixel density of the smartphone is **22 300 pixels/mm² inside the retina**
+$a(r_{deg²}) = 0.0752 + 5.846\times10^{-5}r_{deg²} - 1.064\times10^{-5}r_{deg²}^2 +4.116\times10^{-8}r_{deg²}^3$
 
-### Cones density inside the Fovea
-The cone density in the fovea peaks at 150 000 cones/mm² in FAZ (foveal avascular zone) and decrease quickly.
-The total fovea area contains approximately 200 000 cones [7] with a field of view around 5°. We can deduce that the average density inside the fovea is 113 000 cone/mm² ($\frac{200000}{\pi\times (\frac{1.5}{1})^2}$)
+with
+$a$ is the ratio of areas mm2/deg2
 
-With the 4K camera I have no choice but to under sample the foveal cone density by a factor 0.20 ($\frac{22 300}{113000}$)
+By multiplying the cone density by this factor I obtained the figure 4 below. I used logarithmic scale. The peak density is around 5 000 cones/deg² and drop to 400 at 20°.
 
-To get another view on the difference their are 39400 pixels vs 200 000 cones!
+<center>
+<a href="" rel=""><img src="img/cone_density_per_degree_linear.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 4. Cone density in deg^-2</i>
+</center>
 
-### Outside of the fovea
+### Pixel vs Cone density
 
-Outside the fovea, the cone density is 10.000 cones per mm². This part at least we can simulate it without downsampling by using one pixel out of two.
+In the figure below you can see the cone density in the eye and in the camera. The density in the fovea area (5°), is clearly not enough in the 4K camera. However the peripheral area can easily be simulated.
+<center>
+<a href="" rel=""><img src="img/cone_vs_camera_density.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 5. Cone and pixel densities in deg^-2</i>
+</center>
 
-### Cones distribution simulation
-
-If we try to simulate as close as possible the human cone density, with a 4K camera with 74° FOV, we have the following table:
-
-|   position    | pixel per cone ratio | simulated density |    real cone density    | real max density  |
-| :-----------: | :------------------: | :---------------: | :---------------------: | :---------------: |
-|   in fovea    |         0.20         | 22 300 cones/mm²  | 113 000 cones/mm² (avg) | 150 000 cones/mm² |
-| outside fovea |         2.2          | 10 000 cones/mm²  | 10 000 cones/mm² (avg)  | 10 000 cones/mm²  |
-
-Instead of having a factor 10 between the foveal density and outer density we have only a factor 2.
-
-For the simulation I preferred to keep this factor by decreasing the outer ratio. This means that my simulated retina is equivalent to a human eye that has lost 80% its cones. There are 2 ways to reduce this gap, by using a reduced field of view with a zoom or by using a camera with a higher resolution. For my use case it 'should' be enough so I kept this.
-
-|   position    | pixel per cone ratio | simulated density |    real cone density    | real max density  |
-| :-----------: | :------------------: | :---------------: | :---------------------: | :---------------: |
-|   in fovea    |         0.20         | 22 300 cones/mm²  | 113 000 cones/mm² (avg) | 150 000 cones/mm² |
-| outside fovea |  2.2 (11 for 2000)   |  2 000 cones/mm²  | 10 000 cones/mm² (avg)  | 10 000 cones/mm²  |
-
+For the simulation, I chose to follow the cone density when it is achievable (cf figure below).
 
 <center>
 <a href="" rel="some text"><img src="img/cone_simulated_distribution.png" alt="Cones/Rods distribution" /></a>
@@ -138,6 +165,25 @@ For the simulation I preferred to keep this factor by decreasing the outer ratio
 <center>
     <i>Fig. 3. Simulated Cones density from a 4K camera with a fov of 74°</i>
 </center>
+
+### Pixels by cone
+
+To find the number of pixels by simulated cone, we just need to divide the camera pixel density by the simulated cone density (with the fovea flatten). It varies from 1 (fovea) to 22 pixels per cone
+
+<center>
+<a href="" rel="some text"><img src="img/pixels_per_cone.png" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 3. Pixels by simulated cone</i>
+</center>
+
+### Simulation quantitative differences
+
+There are two main differences between the simulated cones and the real ones. First the field of view is reduced from 160° to 74°. Second the fovea flattening, limit the number of cones. There are 50 000 ($2000\times5^2$) simulated cones instead of the 200 000 cones in the fovea area. We simulate only 1/4 of the foveal cones.
+
+### Simulation visual result (On going TODO)
+
+Illustrations were generated with a previous linear simulation, they need to be updated
 
 <center>
 <a href="" rel="some text"><img src="img/cone_mono_sampling.jpg" alt="Cones/Rods distribution" /></a>
@@ -150,13 +196,9 @@ For the simulation I preferred to keep this factor by decreasing the outer ratio
 <a href="" rel="some text"><img src="img/cones_output.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 5. Simulated Cones sampling from a 4K camera with a fov of 74° (576 x 432)</i>
+    <i>Fig. 5. Simulated Cones sampling from a 4K camera with a fov of 74°</i>
 </center>
 
-With 22 300/2000 distribution I have around 240 000 cones simulated which represent only 4.8% of the 5 000 000 cones. There is a factor 20 with the real retina due to:
-- the subsampling the cones which removes 80% of them
-- the field of view of the camera is only 74° against 160° for the eye
-- the vertical Field Of View is lower than the horizontal one
 
 ### Cones types simulation (S, L, M)
 
@@ -176,8 +218,6 @@ For the simulation I choose 70% M-Type cones, 25% L-Type cones and 5% S-Type con
 <center>
     <i>Fig. 7. Zoom on cones mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
 </center>
-
-
 
 The real cone response is a membrane potential change that decrease rapidly. With the pixel we have a value between 0 and 254 that is stable under constant illumination. I will handle these differences by changing the processing of the upper layer (in next sections).
 
@@ -215,18 +255,61 @@ I will directly simulate ganglionar cells response from cones input. I will repr
 
 ## Ganglionar cells modelisation (redaction ongoing)
 
-All the main ganglionar cells has a similar ON/OFF-center and ON/OFF-surround. The main differences come from their receptive field (I don't consider response time here that can also be different).
+All the main ganglionar cells has a similar ON/OFF-center and ON/OFF-surround response. The main differences come from their receptive field (I don't consider response time here that can also be different).
 
-I will present the modelization of Midget cells, parasol cells and finally konio cells.
-
-
-Do Not read below (if you want to keep your mind safe), for the moment it is just notes.
-
-
+For each of the three main ganglionar cells (midget, parasol and konio) I need to determine their receptive fields surfaces in cones.
 
 ### Midget cells
 
+#### Midget cells distribution
+
 ON-center midget cells are covering the whole retina without overlap. The same is true for OFF-center midget cells [2].
+In the fovea there are 2 Ganglionar cells per cones, one ON and one OFF.
+
+To get the cone/midget ratio outside the fovea, I used Andrew B. Watson Midget Retinal Ganglionar Cell Density [10]. This function estimate the midget GC density considering their receptive field location. It is not an easy task because the midget cells have a variable distance with their receptive field.
+
+Here is the formula he made:
+
+$d_{mf}(r_{deg},k)=2d_c(0)(1+\frac{r_{deg}}{r_m})^{-1}\times[a_k(1+\frac{r_{deg}}{r_{2,k}})^{-2}+(1-a_k)\exp(-\frac{r_{deg}}{r_{e,k}}))]$
+
+with
+- $d_c$ cone density per degrees². The fovea density peak is 14 804 cones/deg²
+- $r2$ excentricity at which the density is reduced by a factor 4
+- $ak$ is the weighting of the first term
+- $re,k$ is the scale factor of the exponential
+- $k$ represent the meridian
+- $r_m$ 41.03°
+
+For the simulation I used only the nasal meridian values given by [10].
+- $a=0.9729$
+- $r_2=1.084$
+- $r_e=7.633$
+
+<center>
+<a href="https://www.cns.nyu.edu/~david/courses/perception/lecturenotes/ganglion/ganglion.html" rel=""><img src="img/midget_ganglionar_cell_density_deg.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 4. Midget ganglionar cell density (based on their receptive field location)</i>
+</center>
+
+Now to get the ratio midget GC/cone we divide the curve above by the cone density [Fig 5]. We can see that their are 2 midget ganglionar cells per cone in the fovea and then this ratio decrease rapidly. At 30° we have 100 cone per midget cell.
+
+<center>
+<a href="https://www.cns.nyu.edu/~david/courses/perception/lecturenotes/ganglion/ganglion.html" rel=""><img src="img/mgc_cone_ratio.png" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 5. Midget ganglionar cell density (based on their receptive field)</i>
+</center>
+
+Most of midget cells are L-M opponent: 80%. This is true in the fovea and in the peripheral areas [4]. In the fovea it is easy to have L-M oppenency even with a random distribution as there is often only one cone in the central area. However, in the peripheral retina, midget cells have several central cones. This would drop the L-M opponency far below 80%. To keep this 80% ratio we need to do a cone selection in the dentric field.
+
+Midget cells never have a S cone in their inner area [9] however they can have ones in their outer area.
+
+| eccentricity (mm) | % of midget cells among all GCs | cones : m-GC |
+| :---------------: | :-----------------------------: | :----------: |
+| 0 to 1.5 (fovea)  |               95%               |     2:1      |
+|       more        |               45%               |      ?       |
+
 
 OFF-center cells have a smaller dentric field and higher cell density (1.7 times more [2]).
 
@@ -236,20 +319,25 @@ OFF-center cells have a smaller dentric field and higher cell density (1.7 times
 |      2 to 6       |                50-80                |                 x 10                 |
 |       more        |              up to 225              |              x 30 - 40               |
 
+Cone diameter varies from 0.5 to 4.0 µm
+Cone pedicles are large, conical, flat end-feet (8-10 µm diameter) [8]
+S-Cone remains isolated to the ganglion cell level too, due to connections with a specific ‘S-cone bipolar cell [8]
 
-| eccentricity (mm) | % of midget cells among all GCs | count |
-| :---------------: | :-----------------------------: | :---: |
-|     0 to 1.5      |               95%               |       |
-|       more        |               45%               |       |
+<center> midget</center>
+| eccentricity (mm) | cone: ratio | ON:OFF inner diameter |   ON:OFF outer diameter    | midget cells cones |
+| :---------------: | :---------: | :-------------------: | :------------------------: | :----------------: |
+|     0 to 1.5      |     2:1     |        1 cone         |          0-2 cone          |         1          |
+|     1.5 to 6      |    2:1 ?    |          2?           |   10(ON):3.7(OFF) cones    |         ?          |
+|       more        |      ?      |           ?           | 30-40(ON):11-15(OFF) cones |         ?          |
+
+### bistratified cells
+
+S cones have 2 bistratified cells [9] .
+
 
 $spacing = 0.1^{(e+1)}$ ? http://www.rctn.org/bruno/psc129/handouts/size-sampling/size-sampling.html
-| eccentricity (mm) | spacing | count |
-| :---------------: | :-----: | :---: |
-|     0 to 1.5      |         |       |
-|         2         |         |       |
-|       more        |         |       |
 
-
+Red– green spectral opponency is consistent with random connections in central retina where the mixed cone ganglion cell surround is opposed by a single cone input to the receptive field center, but not in peripheral retina where centers get multiple cone inputs. [4]
 <center>
     <i>Tab. 1. Midget dentric field size by eccentricity (Data taken from [2])</i>
 </center>
@@ -322,7 +410,7 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 |  0.5 mm  |      1.5°       |
 |  1.2 mm  |       5°        |
 |  1.7 mm  |       6°        |
-|  5.5 mm  |       17°       |
+|  4.5 mm  |       18°       |
 
 0.5 mm representing 1.5°
 
@@ -341,3 +429,21 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 [6] [Yoonessi A, Yoonessi A. Functional assessment of magno, parvo and konio-cellular pathways; current state and future clinical applications. J Ophthalmic Vis Res. 2011;6(2):119–126.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306093/#)
 
 [7] [Kolb H. Facts and Figures Concerning the Human Retina. 2005 May 1 [Updated 2007 Jul 5]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
+
+[8] [webvision.med.utah.edu, Part II Anatomy and Physiology of the retina](https://webvision.med.utah.edu/book/part-ii-anatomy-and-physiology-of-the-retina/photoreceptors/)
+
+[9] [Ahmad K. M. Klug K. Herr S. Sterling P. Schein S. (2003). Cell density ratios in a foveal patch in macaque retina. Visual Neuroscience, 20 (2), 189– 209](https://www.ncbi.nlm.nih.gov/pubmed/12916740)
+
+[10] [Andrew B. Watson; A formula for human retinal ganglion cell receptive field density as a function of visual field location. Journal of Vision 2014;14(7):15. doi: https://doi.org/10.1167/14.7.15.](https://jov.arvojournals.org/article.aspx?articleid=2279458)
+
+[11] [Drasdo N. Fowler C. W. (1974). Non-linear projection of the retinal image in a wide-angle schematic eye. British Journal of Ophthalmology, 58 (8), 709– 714.](http://www.ncbi.nlm.nih.gov/pubmed/4433482)
+
+## Annex
+
+### Conversion of eccentricities in millimeters to degrees
+I used the formula $(A5)$ from [10]
+
+$r_{mm}(r_{deg}) = 0.268r_{deg}+0.0003427r_{deg}^2-8.3309\times10^{-6}r_{deg}$ $(A5)$
+
+with $r_{mm}$ being the distance in mm² and $r_{deg}$ being the equivalent in degree
+
