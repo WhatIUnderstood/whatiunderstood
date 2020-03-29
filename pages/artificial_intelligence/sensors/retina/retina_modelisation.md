@@ -18,8 +18,10 @@ Plan
     - [Convert cone density in $deg^{-2}$](#convert-cone-density-in-mathsemanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
     - [Pixel vs Cone density](#pixel-vs-cone-density)
     - [Pixels by cone](#pixels-by-cone)
-    - [Simulation quantitative differences](#simulation-quantitative-differences)
-    - [Simulation visual result (On going TODO)](#simulation-visual-result-on-going-todo)
+    - [Cone density integral](#cone-density-integral)
+    - [Pixel density integral](#pixel-density-integral)
+    - [Link between cone position and pixel position](#link-between-cone-position-and-pixel-position)
+    - [Cone distribution Simulation](#cone-distribution-simulation)
     - [Cones types simulation (S, L, M)](#cones-types-simulation-s-l-m)
     - [Pixel limitations](#pixel-limitations)
   - [Bipolar cell modelisation ?](#bipolar-cell-modelisation)
@@ -39,7 +41,7 @@ Plan
 
 As you may remember there are around 125 million photoreceptors in the retina: 120 million rods and between 4 and 5 million cones. As rods are saturated during days, I won't consider them. I will only simulate cones.
 
-We have several technologies to capture light for example the CMOS sensor (complementary metal-oxide semiconductor) which converts light to electrons. I won't detail here how it works but I want to show you the response of the pixels to light. It looks like a lot like cones but the sensitivity peaks are shifted.
+Several technologies can capture light, for example the CMOS sensor (complementary metal-oxide semiconductor), which converts light to electrons. I won't detail here how it works but I want to show you the response of the pixels to light. It looks like a lot like cones but the sensitivity peaks are shifted.
 
 <center>
 <img src="img/camera_cuts.jpg" alt="Cones/Rods distribution" />
@@ -68,11 +70,11 @@ The main issue is to consider the repartition of the cones inside the retina!
 
 ### Pixel density
 
-The pixel density per mm² is constant in a camera. They form a grid with a constant space between them. However, we cannot use the real pixel density directly because the focal length is not the same with the one in the eye. One solution to get rid of this issue, is to work with densities per degree². To illustrate this part I used a 4K smartphone camera.
+The pixel density per mm² is constant in a camera. They form a grid with a constant space between them. This density cannot be directly compared with the cone density because the focal length is not the same in the eye. One solution to get rid of this issue, is to work with densities per degree².
+
+To get the pixel density we need to get the focal length of the camera in pixel units.
 
 #### Estimate camera focal and field of view
-
-To find the pixel density we first need some details about the camera: its field of view, and its focal length in pixels.
 
 If like me, you cannot find the focal length of your camera nor the field of view, you can estimate it with the procedure below.
 
@@ -84,7 +86,7 @@ First, choose an object, put your camera so that the object takes exactly the wi
     <i>Fig. 4. Camera field of view &alpha;  </i>
 </center>
 
-Then by using simple trigonometry relations $(1) (2)$ we can determine the field of view $\alpha$
+Then by using simple trigonometry relations $(1) (2)$ you can determine the field of view $\alpha$
 
 \begin{equation}\tan(\frac{\alpha}{2}) = \frac{L}{2D}\end{equation}
  with:
@@ -118,7 +120,7 @@ with
 - $ecc$ eccentricity in degrees
 - $f_{pix}$ focal in pixel unit
 
-To get an estimation of the density we just have to square the function above
+To get an estimation of the density we just have to square the function above.
 
 \begin{equation}d_{pix}(ecc)=g(ecc)^{2}\end{equation}
 
@@ -133,12 +135,12 @@ To get an estimation of the density we just have to square the function above
 
 To compare retinal and camera densities I converted all retinal densities from mm² to degree². To do this I used the polynomial approximation of Andrew B. Watson [10], based on Drasdo and Fowler [11] work.
 
-$a(r_{deg²}) = 0.0752 + 5.846\times10^{-5}r_{deg²} - 1.064\times10^{-5}r_{deg²}^2 +4.116\times10^{-8}r_{deg²}^3$
+$a(r_{deg}) = 0.0752 + 5.846\times10^{-5}r_{deg} - 1.064\times10^{-5}r_{deg}^2 +4.116\times10^{-8}r_{deg}^3$
 
 with
-$a$ is the ratio of areas mm2/deg2
+- $a$ is the ratio of areas mm2/deg2
 
-By multiplying the cone density by this factor I obtained the figure 4 below. I used logarithmic scale. The peak density is around 5 000 cones/deg² and drop to 400 at 20°.
+By multiplying the cone density by this factor I obtained the figure 4 below. The peak density is around 5 000 cones/deg² and drop to 400 at 20°. The cone
 
 <center>
 <a href="" rel=""><img src="img/cone_density_per_degree_linear.png" alt="" /></a>
@@ -157,8 +159,7 @@ In the figure below you can see the cone density in the eye and in the camera. T
     <i>Fig. 5. Cone and pixel densities in deg^-2</i>
 </center>
 
-For the simulation, I chose to follow the cone density when it is achievable (cf figure below).
-
+In the fovea area, the camera does not have a density high enough. Here there are two choices: either reuse the same pixel for several cones or drop some cones to match the camera density (cf figure below red curve).
 <center>
 <a href="" rel="some text"><img src="img/cone_simulated_distribution.png" alt="Cones/Rods distribution" /></a>
 </center>
@@ -168,7 +169,7 @@ For the simulation, I chose to follow the cone density when it is achievable (cf
 
 ### Pixels by cone
 
-To find the number of pixels by simulated cone, we just need to divide the camera pixel density by the simulated cone density (with the fovea flatten). It varies from 1 (fovea) to 22 pixels per cone
+To find the number of pixels by simulated cone, we just need to divide the camera pixel density by the simulated cone density (with the fovea flatten). It varies from 1 (fovea) to 22 pixels per cone.
 
 <center>
 <a href="" rel="some text"><img src="img/pixels_per_cone.png" alt="Cones/Rods distribution" /></a>
@@ -177,28 +178,71 @@ To find the number of pixels by simulated cone, we just need to divide the camer
     <i>Fig. 3. Pixels by simulated cone</i>
 </center>
 
-### Simulation quantitative differences
+### Cone density integral
+In order to know the number of cones from the center of the fovea to any eccentricity, we can integrate the cone density curve (cf figure below).
+I took the values derived from Curcio work [12] provided by [10].
+I used only the temporal and nasal cone densities. I have noticed that the fovea diameter in cone is only 340 cones instead of the 500 cones reported by a lot of papers. This difference may come from the data I used which does not represent the average cone distribution (or a mistake in my calculations ^^)...
 
-There are two main differences between the simulated cones and the real ones. First the field of view is reduced from 160° to 74°. Second the fovea flattening, limit the number of cones. There are 50 000 ($2000\times5^2$) simulated cones instead of the 200 000 cones in the fovea area. We simulate only 1/4 of the foveal cones.
+$I_{cone}(ecc)=\int_{i=0}^{ecc}D_{cone}(i)$
 
-### Simulation visual result (On going TODO)
+with:
+- $D_{cone}(x)$ density of cone by $deg^{-2}$
+- $ecc$ eccentricity in $deg$
 
-Illustrations were generated with a previous linear simulation, they need to be updated
+<center>
+<a href="" rel=""><img src="img/cone_eccentricity_in_cone.png" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 3. Cone density integral</i>
+</center>
+
+The curve is flattened around 16° due to the optic nerve.
+
+### Pixel density integral
+The pixel density can also be integrated (fig below). Arround 36° the curve flatten because the end of the sensor array has been reached (3680/2 pixels for the 4K camera).
+
+$I_{pixel}(ecc)=\int_{i=0}^{ecc}D_{pixel}(i)$
+
+with:
+- $D_{pixel}(x)$ density of pixels by $deg^{-2}$
+- $ecc$ eccentricity in $deg$
+
+<center>
+<a href="" rel=""><img src="img/cone_and_pixel_eccentricity_in_phtoreceptors.png" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 3. Cone and pixel density integrals</i>
+</center>
+
+### Link between cone position and pixel position
+
+To convert a cone position to a pixel position we use the function $P()$ below.
+
+$P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
+
+<center>
+<a href="" rel=""><img src="img/cone_eccentricity_in_pixel.png" alt="Cones/Rods distribution" /></a>
+</center>
+<center>
+    <i>Fig. 3. Cones in pixel coordinate</i>
+</center>
+
+
+### Cone distribution Simulation
 
 <center>
 <a href="" rel="some text"><img src="img/cone_mono_sampling.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 4. The background is the 4K monochrome image. In the top left you can see the cone simulation. The ratio between the two images are respected</i>
+    <i>Fig. 4. Raw 4K monochrome image (hfov 74°)</i>
 </center>
 
 <center>
 <a href="" rel="some text"><img src="img/cones_output.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 5. Simulated Cones sampling from a 4K camera with a fov of 74°</i>
+    <i>Fig. 5. Simulated cones sampling from a 4K camera (hfov 74°). For this capture, all cones have been simulated even the ones in the fovea, by reusing pixels</i>
 </center>
-
 
 ### Cones types simulation (S, L, M)
 
@@ -230,7 +274,7 @@ The real cone response is a membrane potential change that decrease rapidly. Wit
 
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LK4tsv8Rbtw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x0XqHhvJyVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <center>
     <i>Vid. 1. Cones L-Type M-Type and S-Type simulation over different objects with different colors.</i>
@@ -437,6 +481,8 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 [10] [Andrew B. Watson; A formula for human retinal ganglion cell receptive field density as a function of visual field location. Journal of Vision 2014;14(7):15. doi: https://doi.org/10.1167/14.7.15.](https://jov.arvojournals.org/article.aspx?articleid=2279458)
 
 [11] [Drasdo N. Fowler C. W. (1974). Non-linear projection of the retinal image in a wide-angle schematic eye. British Journal of Ophthalmology, 58 (8), 709– 714.](http://www.ncbi.nlm.nih.gov/pubmed/4433482)
+
+[12] [Curcio, C. A., Sloan, K. R., Kalina, R. E., & Hendrickson, A. E. (1990). Human photoreceptor topography. The Journal of Comparative Neurology, 292(4), 497–523. doi:10.1002/cne.902920402](https://www.ncbi.nlm.nih.gov/pubmed/2324310)
 
 ## Annex
 
