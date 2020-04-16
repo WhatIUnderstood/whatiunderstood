@@ -132,7 +132,7 @@ To get an estimation of the density we just have to square the function above.
 <a href="" rel=""><img src="img/pixel_density_deg.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 4. Pixel density of a smartphone 4K camera</i>
+    <i>Fig. 5. Pixel density of a smartphone 4K camera</i>
 </center>
 
 ### Convert cone density in $deg^{-2}$
@@ -144,13 +144,13 @@ $a(r_{deg}) = 0.0752 + 5.846\times10^{-5}r_{deg} - 1.064\times10^{-5}r_{deg}^2 +
 with
 - $a$ is the ratio of areas mm2/deg2
 
-By multiplying the cone density by this factor I obtained the figure 4 below. The peak density is around 5 000 cones/deg² and drop to 400 at 20°. The cone
+By multiplying the cone density by this factor I obtained the figure 6 below. The peak density is around 15 000 cones/deg² and drop to 400 at 20°. The cone
 
 <center>
 <a href="" rel=""><img src="img/cone_density_per_degree_linear.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 4. Cone density in deg^-2</i>
+    <i>Fig. 6. Cone density in deg^-2</i>
 </center>
 
 ### Pixel vs Cone density
@@ -160,7 +160,7 @@ In the figure below you can see the cone density in the eye and in the camera. T
 <a href="" rel=""><img src="img/cone_vs_camera_density.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 5. Cone and pixel densities in deg^-2</i>
+    <i>Fig. 7. Cone and pixel densities in deg^-2</i>
 </center>
 
 In the fovea area, the camera does not have a density high enough. Here there are two choices: either reuse the same pixel for several cones or drop some cones to match the camera density (cf figure below red curve).
@@ -168,7 +168,7 @@ In the fovea area, the camera does not have a density high enough. Here there ar
 <a href="" rel="some text"><img src="img/cone_simulated_distribution.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 3. Simulated Cones density from a 4K camera with a fov of 74°</i>
+    <i>Fig. 8. Simulated Cones density from a 4K camera with a fov of 74°</i>
 </center>
 
 ### Pixels by cone
@@ -179,7 +179,7 @@ To find the number of pixels by simulated cone, we just need to divide the camer
 <a href="" rel="some text"><img src="img/pixels_per_cone.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 3. Pixels by simulated cone</i>
+    <i>Fig. 9. Pixels by simulated cone</i>
 </center>
 
 ### Cone density integral
@@ -197,7 +197,7 @@ with:
 <a href="" rel=""><img src="img/cone_eccentricity_in_cone.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 3. Cone density integral</i>
+    <i>Fig. 10. Cone density integral</i>
 </center>
 
 The curve is flattened around 16° due to the optic nerve.
@@ -215,7 +215,7 @@ with:
 <a href="" rel=""><img src="img/cone_and_pixel_eccentricity_in_phtoreceptors.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 3. Cone and pixel density integrals</i>
+    <i>Fig. 11. Cone and pixel density integrals</i>
 </center>
 
 ### Link between cone position and pixel position
@@ -228,7 +228,7 @@ $P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
 <a href="" rel=""><img src="img/cone_eccentricity_in_pixel.png" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 3. Cones in pixel coordinate</i>
+    <i>Fig. 12. Cones in pixel coordinate</i>
 </center>
 
 
@@ -238,7 +238,7 @@ $P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
 <a href="" rel="some text"><img src="img/cone_mono_sampling.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 4. Raw 4K monochrome image (hfov 74°)</i>
+    <i>Fig. 13. Raw 4K monochrome image (hfov 74°)</i>
 </center>
 
 From the image above, the following cone simulation has been made:
@@ -246,7 +246,7 @@ From the image above, the following cone simulation has been made:
 <a href="" rel="some text"><img src="img/cones_output.jpg" alt="Cones/Rods distribution" /></a>
 </center>
 <center>
-    <i>Fig. 5. Simulated cones sampling from a 4K camera (hfov 74°). For this capture, all cones have been simulated even the ones in the fovea, by reusing pixels</i>
+    <i>Fig. 14. Simulated cones sampling from a 4K camera (hfov 74°). For this capture, all cones have been simulated even the ones in the fovea, by reusing pixels</i>
 </center>
 
 ### Cones types simulation (S, L, M)
@@ -262,14 +262,14 @@ For each simulated cone, only one color of the pixel will be used. Red for the L
 <a href="" rel=""><img src="img/cone_map.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 6. Cones Mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
+    <i>Fig. 15. Cones Mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
 </center>
 
 <center>
 <a href="" rel=""><img src="img/cone_map_zoom.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 7. Zoom on cones mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
+    <i>Fig. 16. Zoom on cones mapping with 70% M-Type cones, 25% L-Type cones and 5% S-Type cones</i>
 </center>
 
 The real cone response is a membrane potential change that decrease rapidly. With the pixel we have a value between 0 and 254 that is stable under constant illumination. I will handle these differences by changing the processing of the upper layer (in next sections).
@@ -278,14 +278,14 @@ The real cone response is a membrane potential change that decrease rapidly. Wit
 <a href="" rel="some text"><img src="img/photo_receptor_colors.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 7. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
+    <i>Fig. 17. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
 </center>
 
 <center>
 <a href="" rel="some text"><img src="img/cones_output_color.jpg" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 7. Cones L-Type M-Type and S-Type simulation over a blue object</i>
+    <i>Fig. 18. Cones L-Type M-Type and S-Type simulation over a blue object</i>
 </center>
 
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
@@ -364,16 +364,16 @@ For the simulation I used only the nasal meridian values given by [10].
 <img src="img/midget_ganglionar_cell_density_deg.png" alt="" />
 </center>
 <center>
-    <i>Fig. 4. Midget ganglionar cell density (based on their receptive field location)</i>
+    <i>Fig. 19. Midget ganglionar cell density (based on their receptive field location)</i>
 </center>
 
-Now to get the ratio midget GC/cone we divide the curve above by the cone density [Fig 5]. We can see that their are 2 midget ganglionar cells per cone in the fovea and then this ratio decrease rapidly. At 30° we have 100 cone per midget cell.
+Now to get the ratio midget GC/cone we divide the curve above by the cone density. We can see that their are 2 midget ganglionar cells per cone in the fovea and then this ratio decrease rapidly. At 30° we have 100 cone per midget cell.
 
 <center>
 <img src="img/mgc_cone_ratio.png" alt="" />
 </center>
 <center>
-    <i>Fig. 5. Midget ganglionar cell density (based on their receptive field)</i>
+    <i>Fig. 20. Midget ganglionar cell density (based on their receptive field)</i>
 </center>
 
 As ON-Center and OFF-Center mGCs covers the whole retina, it is possible to assume that one in two is ON and the other OFF. In this situation, the ON-Center mGC density is half of the total mGC density. The same is true for the OFF-Center mGC density. From these assumptions we can estimate the number of cones per midget ganglionar cell (figure below). Near the fovea each ON mGC has exactly one cone and 20 at 30°.
@@ -382,7 +382,7 @@ As ON-Center and OFF-Center mGCs covers the whole retina, it is possible to assu
 <img src="img/mgc_on_center_receptive_field_cones.png" alt="" />
 </center>
 <center>
-    <i>Fig. 5. Midget ganglionar cell receptive field cones count</i>
+    <i>Fig. 21. Midget ganglionar cell receptive field cones count</i>
 </center>
 
 From the number of cones by mGC we can compute the radius in cones of each mGC (cf graph below).
@@ -390,7 +390,7 @@ From the number of cones by mGC we can compute the radius in cones of each mGC (
 <img src="img/GCm_radius.png" alt="" />
 </center>
 <center>
-    <i>Fig. 5. Midget ganglionar cell receptive field radius in cone unit</i>
+    <i>Fig. 22. Midget ganglionar cell receptive field radius in cone unit</i>
 </center>
 
 Until now, we considered only the total radius of the mGC receptive field. Some studies [TODO add ref] have shown that there is a ratio of 1/3rd between the central and the peripheral diameter.
@@ -409,7 +409,7 @@ As you can notice there is a central disk, it represents the area where one midg
 <img src="img/mgc_output.png" alt="" />
 </center>
 <center>
-    <i>Fig. 5. Midget ganglionar cell response. You can also see the original image and the cone response (top left and bottom left)</i>
+    <i>Fig. 23. Midget ganglionar cell response. You can also see the original image and the cone response (top left and bottom left)</i>
 </center>
 
 
