@@ -14,21 +14,25 @@ Plan
   - [Photo Receptors Simulation](#photo-receptors-simulation)
     - [Pixel density](#pixel-density)
       - [Estimate camera focal and field of view](#estimate-camera-focal-and-field-of-view)
-      - [Determine pixel density in $deg^{-2}$](#determine-pixel-density-in-mathsemanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
-    - [Convert cone density in $deg^{-2}$](#convert-cone-density-in-mathsemanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
+      - [Determine pixel density in $deg^{-2}$](#determine-pixel-density-in-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
+    - [Convert cone density in $deg^{-2}$](#convert-cone-density-in-math-xmlns%22httpwwww3org1998mathmathml%22semanticsmrowmidmimiemimsupmigmimrowmo%e2%88%92momn2mnmrowmsupmrowannotation-encoding%22applicationx-tex%22deg-2annotationsemanticsmathdeg%e2%88%922)
     - [Pixel vs Cone density](#pixel-vs-cone-density)
     - [Pixels by cone](#pixels-by-cone)
     - [Cone density integral](#cone-density-integral)
     - [Pixel density integral](#pixel-density-integral)
     - [Link between cone position and pixel position](#link-between-cone-position-and-pixel-position)
-    - [Cone distribution Simulation](#cone-distribution-simulation)
+    - [Cone distribution simulation](#cone-distribution-simulation)
     - [Cones types simulation (S, L, M)](#cones-types-simulation-s-l-m)
     - [Pixel limitations](#pixel-limitations)
   - [Bipolar cell modelisation ?](#bipolar-cell-modelisation)
   - [Ganglionar cells modelisation (redaction ongoing)](#ganglionar-cells-modelisation-redaction-ongoing)
+    - [Ganglionar cell response modelisation](#ganglionar-cell-response-modelisation)
     - [Midget cells](#midget-cells)
       - [Midget cells distribution](#midget-cells-distribution)
-    - [bistratified cells](#bistratified-cells)
+      - [Midget Notes](#midget-notes)
+      - [Midget cell simulation results](#midget-cell-simulation-results)
+    - [Parasol cells (ongoing)](#parasol-cells-ongoing)
+    - [bistratified cells (ongoing)](#bistratified-cells-ongoing)
     - [How many Ganglionar cells](#how-many-ganglionar-cells)
     - [How many cones per parasol cells?](#how-many-cones-per-parasol-cells)
   - [Notes](#notes)
@@ -228,7 +232,7 @@ $P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
 </center>
 
 
-### Cone distribution Simulation
+### Cone distribution simulation
 
 <center>
 <a href="" rel="some text"><img src="img/cone_mono_sampling.jpg" alt="Cones/Rods distribution" /></a>
@@ -237,6 +241,7 @@ $P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
     <i>Fig. 4. Raw 4K monochrome image (hfov 74°)</i>
 </center>
 
+From the image above, the following cone simulation has been made:
 <center>
 <a href="" rel="some text"><img src="img/cones_output.jpg" alt="Cones/Rods distribution" /></a>
 </center>
@@ -246,8 +251,12 @@ $P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
 
 ### Cones types simulation (S, L, M)
 
-In the previous section only the cone distribution was considered not their type: blue, green, red (S,M,L). The proportion of cones inside the retina change a lot between two persons except the blue cones that represent only 5% of them.
+In the previous section, only the cone distribution was considered, not their type: blue, green, red (S,M,L). The proportion of cones inside the retina change a lot between two persons except the blue cones that represent only 5% of them.
 For the simulation I choose 70% M-Type cones, 25% L-Type cones and 5% S-Type cones.
+
+For this simulation, the S,M and L types follow a random distribution, respecting the proportion 70%, 25% and 5%. There is a debate on whether or not the cones type distribution is random or not but here I decided to assume the randomness.
+
+For each simulated cone, only one color of the pixel will be used. Red for the L-type cone, Green for the M-type and blue for the S-Type. You can see a representation below:
 
 <center>
 <a href="" rel=""><img src="img/cone_map.png" alt="" /></a>
@@ -266,15 +275,22 @@ For the simulation I choose 70% M-Type cones, 25% L-Type cones and 5% S-Type con
 The real cone response is a membrane potential change that decrease rapidly. With the pixel we have a value between 0 and 254 that is stable under constant illumination. I will handle these differences by changing the processing of the upper layer (in next sections).
 
 <center>
-<a href="" rel="some text"><img src="img/photo_receptor_colors.png" alt="Cones/Rods distribution" /></a>
+<a href="" rel="some text"><img src="img/photo_receptor_colors.png" alt="" /></a>
 </center>
 <center>
     <i>Fig. 7. Cones L-Type M-Type and S-Type simulation over a green object. You may notice that a lot of pixels are white because 70% the cones are green cones</i>
 </center>
 
+<center>
+<a href="" rel="some text"><img src="img/cones_output_color.jpg" alt="" /></a>
+</center>
+<center>
+    <i>Fig. 7. Cones L-Type M-Type and S-Type simulation over a blue object</i>
+</center>
+
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x0XqHhvJyVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/x0XqHhvJyVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <center>
     <i>Vid. 1. Cones L-Type M-Type and S-Type simulation over different objects with different colors.</i>
@@ -299,20 +315,35 @@ I will directly simulate ganglionar cells response from cones input. I will repr
 
 ## Ganglionar cells modelisation (redaction ongoing)
 
-All the main ganglionar cells has a similar ON/OFF-center and ON/OFF-surround response. The main differences come from their receptive field (I don't consider response time here that can also be different).
+Most of the ganglionar cells have a similar ON/OFF-center and ON/OFF-surround response. The main differences come from their receptive field (I don't consider response time here that can also be different).
 
-For each of the three main ganglionar cells (midget, parasol and konio) I need to determine their receptive fields surfaces in cones.
+### Ganglionar cell response modelisation
+
+To compute a ON-Center ganglionar response, we get the mean cone response in the central receptive field and subsctract it by the mean cone response of the peripheral receptive field.
+
+As the simulated cone response is between 0 and 255, the result of this operation is between -255 and 255. In order to keep a value between 0 and 255 we center the value on 128.
+
+\begin{equation}\frac{1}{2}\times(\frac{\sum_{x=0}^{n_i} c_i(x)}{n_i}-\frac{\sum_{x=0}^{n_p} c_p(x)}{n_p}) + 128\end{equation}
+
+with:
+- $n_i,n_p$: total number of inner (or peripheral) cones
+- $c_i(x)$: function returning the response from the xth inner cone
+- $c_p(x)$: function returning the response from the xth peripheral cone
+
+For an OFF center cell it becomes
+
+\begin{equation}\frac{1}{2}\times(\frac{\sum_{x=0}^{n_p} c_p(x)}{n_p}-\frac{\sum_{x=0}^{n_i} c_i(x)}{n_i}) + 128\end{equation}
+
+To apply this function for each of the three main ganglionar cells (midget, parasol and konio) I need to determine their receptive fields surfaces in cones.
 
 ### Midget cells
 
 #### Midget cells distribution
 
 ON-center midget cells are covering the whole retina without overlap. The same is true for OFF-center midget cells [2].
-In the fovea there are 2 Ganglionar cells per cones, one ON and one OFF.
+In the fovea there are 2 Ganglionars cells per cones, one ON and one OFF.
 
 To get the cone/midget ratio outside the fovea, I used Andrew B. Watson Midget Retinal Ganglionar Cell Density [10]. This function estimate the midget GC density considering their receptive field location. It is not an easy task because the midget cells have a variable distance with their receptive field.
-
-Here is the formula he made:
 
 $d_{mf}(r_{deg},k)=2d_c(0)(1+\frac{r_{deg}}{r_m})^{-1}\times[a_k(1+\frac{r_{deg}}{r_{2,k}})^{-2}+(1-a_k)\exp(-\frac{r_{deg}}{r_{e,k}}))]$
 
@@ -330,7 +361,7 @@ For the simulation I used only the nasal meridian values given by [10].
 - $r_e=7.633$
 
 <center>
-<a href="https://www.cns.nyu.edu/~david/courses/perception/lecturenotes/ganglion/ganglion.html" rel=""><img src="img/midget_ganglionar_cell_density_deg.png" alt="" /></a>
+<img src="img/midget_ganglionar_cell_density_deg.png" alt="" />
 </center>
 <center>
     <i>Fig. 4. Midget ganglionar cell density (based on their receptive field location)</i>
@@ -339,70 +370,64 @@ For the simulation I used only the nasal meridian values given by [10].
 Now to get the ratio midget GC/cone we divide the curve above by the cone density [Fig 5]. We can see that their are 2 midget ganglionar cells per cone in the fovea and then this ratio decrease rapidly. At 30° we have 100 cone per midget cell.
 
 <center>
-<a href="https://www.cns.nyu.edu/~david/courses/perception/lecturenotes/ganglion/ganglion.html" rel=""><img src="img/mgc_cone_ratio.png" alt="" /></a>
+<img src="img/mgc_cone_ratio.png" alt="" />
 </center>
 <center>
     <i>Fig. 5. Midget ganglionar cell density (based on their receptive field)</i>
 </center>
 
-Most of midget cells are L-M opponent: 80%. This is true in the fovea and in the peripheral areas [4]. In the fovea it is easy to have L-M oppenency even with a random distribution as there is often only one cone in the central area. However, in the peripheral retina, midget cells have several central cones. This would drop the L-M opponency far below 80%. To keep this 80% ratio we need to do a cone selection in the dentric field.
+As ON-Center and OFF-Center mGCs covers the whole retina, it is possible to assume that one in two is ON and the other OFF. In this situation, the ON-Center mGC density is half of the total mGC density. The same is true for the OFF-Center mGC density. From these assumptions we can estimate the number of cones per midget ganglionar cell (figure below). Near the fovea each ON mGC has exactly one cone and 20 at 30°.
 
+<center>
+<img src="img/mgc_on_center_receptive_field_cones.png" alt="" />
+</center>
+<center>
+    <i>Fig. 5. Midget ganglionar cell receptive field cones count</i>
+</center>
+
+From the number of cones by mGC we can compute the radius in cones of each mGC (cf graph below).
+<center>
+<img src="img/GCm_radius.png" alt="" />
+</center>
+<center>
+    <i>Fig. 5. Midget ganglionar cell receptive field radius in cone unit</i>
+</center>
+
+Until now, we considered only the total radius of the mGC receptive field. Some studies [TODO add ref] have shown that there is a ratio of 1/3rd between the central and the peripheral diameter.
+
+#### Midget Notes
 Midget cells never have a S cone in their inner area [9] however they can have ones in their outer area.
 
-| eccentricity (mm) | % of midget cells among all GCs | cones : m-GC |
-| :---------------: | :-----------------------------: | :----------: |
-| 0 to 1.5 (fovea)  |               95%               |     2:1      |
-|       more        |               45%               |      ?       |
+OFF-center cells have a smaller dentric field and higher cell density (1.7 times more [2]). I did not considered this for now but It could be more interresting because if you keep a ratio of 1.0, the ON and OFF responses are just the opposite, It does not bring additionnal infos.
+
+#### Midget cell simulation results
+
+For the visualisation of the midget ganglionar cell response, I used a colormap (shown in the top left corner of the figure below). If the ganglionar cell has a mean frequency response, the color is blue. The further you get from this value the more red it becomes. By doing this we cannot distinguish high/low reponses. However, as the ON and OFF have identical receptive fields, their response are always opposite. This representation is not perfect but it is the best I have found so far.
+
+As you can notice there is a central disk, it represents the area where one midget cell have only one central cone without any surrounding. Once you cross this area, midget cells responds to L/M oppositions.
+<center>
+<img src="img/mgc_output.png" alt="" />
+</center>
+<center>
+    <i>Fig. 5. Midget ganglionar cell response. You can also see the original image and the cone response (top left and bottom left)</i>
+</center>
 
 
-OFF-center cells have a smaller dentric field and higher cell density (1.7 times more [2]).
+Here a video with the mGC response.
+<center>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/H_fmwQq9_Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
 
-| eccentricity (mm) | midget dentric field size $(\mu m)$ | midget dentric field increase factor |
-| :---------------: | :---------------------------------: | :----------------------------------: |
-|      0 to 2       |                5-10                 |                 x 1                  |
-|      2 to 6       |                50-80                |                 x 10                 |
-|       more        |              up to 225              |              x 30 - 40               |
+### Parasol cells (ongoing)
 
-Cone diameter varies from 0.5 to 4.0 µm
-Cone pedicles are large, conical, flat end-feet (8-10 µm diameter) [8]
-S-Cone remains isolated to the ganglion cell level too, due to connections with a specific ‘S-cone bipolar cell [8]
-
-<center> midget</center>
-| eccentricity (mm) | cone: ratio | ON:OFF inner diameter |   ON:OFF outer diameter    | midget cells cones |
-| :---------------: | :---------: | :-------------------: | :------------------------: | :----------------: |
-|     0 to 1.5      |     2:1     |        1 cone         |          0-2 cone          |         1          |
-|     1.5 to 6      |    2:1 ?    |          2?           |   10(ON):3.7(OFF) cones    |         ?          |
-|       more        |      ?      |           ?           | 30-40(ON):11-15(OFF) cones |         ?          |
-
-### bistratified cells
+### bistratified cells (ongoing)
 
 S cones have 2 bistratified cells [9] .
-
 
 $spacing = 0.1^{(e+1)}$ ? http://www.rctn.org/bruno/psc129/handouts/size-sampling/size-sampling.html
 
 Red– green spectral opponency is consistent with random connections in central retina where the mixed cone ganglion cell surround is opposed by a single cone input to the receptive field center, but not in peripheral retina where centers get multiple cone inputs. [4]
-<center>
-    <i>Tab. 1. Midget dentric field size by eccentricity (Data taken from [2])</i>
-</center>
 
-
- 1  x10 x30
-<->
-
-
-<center>
-<a href="https://www.cns.nyu.edu/~david/courses/perception/lecturenotes/ganglion/ganglion.html" rel="some text"><img src="img/canter_surround_modelisation.png" alt="Cones/Rods distribution" /></a>
-</center>
-<center>
-    <i>Fig. 4. Center surround modelisation from (www.cns.nyu.edu)</i>
-</center>
-<center>
-<a href="https://www.cns.nyu.edu/~david/courses/perception/lecturenotes/ganglion/ganglion.html" rel="some text"><img src="img/neural_image.png" alt="Cones/Rods distribution" /></a>
-</center>
-<center>
-    <i>Fig. 4. Ganglionar cell response(www.cns.nyu.edu)</i>
-</center>
 
 We have seen that there are mainly different ganglionar cells. Until now I simulated only two of them:
 - midget GCs which have a tiny receptive field and mainly goes to the parvo pathway
@@ -456,7 +481,20 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 |  1.7 mm  |       6°        |
 |  4.5 mm  |       18°       |
 
-0.5 mm representing 1.5°
+| eccentricity (mm) | midget dentric field size $(\mu m)$ | midget dentric field increase factor |
+| :---------------: | :---------------------------------: | :----------------------------------: |
+|      0 to 2       |                5-10                 |                 x 1                  |
+|      2 to 6       |                50-80                |                 x 10                 |
+|       more        |              up to 225              |              x 30 - 40               |
+<center>
+    <i>Tab. 1. Midget dentric field size by eccentricity (Data taken from [2])</i>
+</center>
+
+Cone diameter varies from 0.5 to 4.0 µm
+
+Cone pedicles are large, conical, flat end-feet (8-10 µm diameter) [8]
+
+S-Cone remains isolated to the ganglion cell level too, due to connections with a specific ‘S-cone bipolar cell [8]
 
 ## Biblio
 
