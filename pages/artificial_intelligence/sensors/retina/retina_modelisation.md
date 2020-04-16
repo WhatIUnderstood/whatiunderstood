@@ -144,7 +144,7 @@ $a(r_{deg}) = 0.0752 + 5.846\times10^{-5}r_{deg} - 1.064\times10^{-5}r_{deg}^2 +
 with
 - $a$ is the ratio of areas mm2/deg2
 
-By multiplying the cone density by this factor I obtained the figure 6 below. The peak density is around 15 000 cones/deg² and drop to 400 at 20°. The cone
+By multiplying the cone density by this factor I obtained the figure 6 below. The peak density is around 15 000 cones/deg² and drop to 400 at 20°.
 
 <center>
 <a href="" rel=""><img src="img/cone_density_per_degree_linear.png" alt="" /></a>
