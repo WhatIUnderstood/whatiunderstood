@@ -290,7 +290,7 @@ The real cone response is a membrane potential change that decrease rapidly. Wit
 
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
 <center>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/x0XqHhvJyVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x0XqHhvJyVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <center>
     <i>Vid. 1. Cones L-Type M-Type and S-Type simulation over different objects with different colors.</i>
@@ -415,7 +415,7 @@ As you can notice there is a central disk, it represents the area where one midg
 
 Here a video with the mGC response.
 <center>
-<iframe width="800" height="450" src="https://www.youtube.com/embed/H_fmwQq9_Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H_fmwQq9_Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 
 ### Parasol cells (ongoing)
