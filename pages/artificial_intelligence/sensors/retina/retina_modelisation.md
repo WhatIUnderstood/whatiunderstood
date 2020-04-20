@@ -346,7 +346,7 @@ In the fovea there are 2 Ganglionars cells per cones, one ON and one OFF.
 
 To get the cone/midget ratio outside the fovea, I used Andrew B. Watson Midget Retinal Ganglionar Cell Density [10]. This function estimate the midget GC density considering their receptive field location. It is not an easy task because the midget cells have a variable distance with their receptive field.
 
-$d_{mf}(r_{deg},k)=2d_c(0)(1+\frac{r_{deg}}{r_m})^{-1}\times[a_k(1+\frac{r_{deg}}{r_{2,k}})^{-2}+(1-a_k)\exp(-\frac{r_{deg}}{r_{e,k}}))]$
+$density_{midgetf}(r_{deg},k)=2d_c(0)(1+\frac{r_{deg}}{r_m})^{-1}\times[a_k(1+\frac{r_{deg}}{r_{2,k}})^{-2}+(1-a_k)\exp(-\frac{r_{deg}}{r_{e,k}}))]$
 
 with
 - $d_c$ cone density per degrees². The fovea density peak is 14 804 cones/deg²
@@ -378,6 +378,8 @@ Now to get the ratio midget GC/cone we divide the curve above by the cone densit
 </center>
 
 As ON-Center and OFF-Center mGCs covers the whole retina, it is possible to assume that one in two is ON and the other OFF. In this situation, the ON-Center mGC density is half of the total mGC density. The same is true for the OFF-Center mGC density. From these assumptions we can estimate the number of cones per midget ganglionar cell (figure below). Near the fovea each ON mGC has exactly one cone and 20 at 30°.
+
+$midget\_receptive\_cones(ecc) = 2\times \frac{density\_cones(ecc)}{density\_midget(ecc)}$
 
 <center>
 <img src="img/mgc_on_center_receptive_field_cones.png" alt="" />
@@ -460,6 +462,7 @@ Below the density of parasol cells:
 
 From the density, it is possible to estimate the number of cones inside parasol cell receptive field knowing that the distance between 2 neighbors cells of the same type represent half of their receptive field.
 
+$parasol\_receptive\_cones(ecc) = 8\times \frac{density\_cones(ecc)}{density\_parasol(ecc)}$
 <center>
 <img src="img/cones_per_parasol_cell.png" alt="" />
 </center>
