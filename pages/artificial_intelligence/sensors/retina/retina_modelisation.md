@@ -31,7 +31,8 @@ Plan
       - [Midget cells distribution](#midget-cells-distribution)
       - [Midget Notes](#midget-notes)
       - [Midget cell simulation results](#midget-cell-simulation-results)
-    - [Parasol cells (ongoing)](#parasol-cells-ongoing)
+    - [Parasol cells](#parasol-cells)
+      - [Parasol cells results](#parasol-cells-results)
     - [bistratified cells (ongoing)](#bistratified-cells-ongoing)
     - [How many Ganglionar cells](#how-many-ganglionar-cells)
     - [How many cones per parasol cells?](#how-many-cones-per-parasol-cells)
@@ -418,7 +419,70 @@ Here a video with the mGC response.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H_fmwQq9_Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 
-### Parasol cells (ongoing)
+### Parasol cells
+
+Like midget cells, ON and OFF center parasol are covering the whole retina. However, unlike midget cells, parasol cells with the same type (ON or OFF) have their receptive field overlapping [13]. The distance between 2 neighbors cells of the same type represent half of their receptive field.
+
+For the parasol cell, I did not find yet a study that shows the continuous distribution. I will use global statistics to approximate this distribution.
+
+|         position          | midget qty | parasol  |
+| :-----------------------: | :--------: | :------: |
+|           fovea           |    95%     | 5% [13]  |
+| outside fovea (up to 50°) |    45%     | 15% [13] |
+|     total (up to 50°)     |    80%     |   10%    |
+
+I will assume that the parasol density is a constant fraction of the remaining ganglionar cells that are not midget ones, plus a constant fraction of all ganglionar cells. I have no clues if it is the case.
+
+$density_{parasol}=C\times density_{all}+(density_{all}-density_{midget})\times K$
+
+I find $C$ and $K$ using 2 positions
+- at 2.16° where $density_{parasol} = 5\%$ of $density_{all}$
+- at 50° where $density_{parasol} = 15\%$ of $density_{all}$
+
+I choose 2.16° because it is at this position that the midget cells represent 95% of all cells.
+
+This gives me $C=0.04$ and $K=0.2$. You can find below the fraction of parasol cell using this values:
+<center>
+<img src="img/parasol_fraction.png" alt="" />
+</center>
+<center>
+    <i>Fig. 23. Parasol ganglionar cell fraction along with midget cell fraction. At 0° the current midget cell model return 100% that is why the sum of parasol and midget fraction are a bit above 100%. Midget density model can be updated later...</i>
+</center>
+
+Below the density of parasol cells:
+
+<center>
+<img src="img/parasol_density.png" alt="" />
+</center>
+<center>
+    <i>Fig. 23. Parasol ganglionar cell estimated density. This estimation represent 19% of the ganglionar cells that are not midget cells</i>
+</center>
+
+From the density, it is possible to estimate the number of cones inside parasol cell receptive field knowing that the distance between 2 neighbors cells of the same type represent half of their receptive field.
+
+<center>
+<img src="img/cones_per_parasol_cell.png" alt="" />
+</center>
+<center>
+    <i>Fig. 24. Cones in parasol cell receptive field</i>
+</center>
+
+
+#### Parasol cells results
+
+Below the output of parasol cells. I am no sure why I have still a bit of chromatic information while the parasol cell should not provide any, due to their larger receptive field.
+My explanation is that, due to the large ratio of 70% M cones, it is possible that some parasol cell center have mainly M cones in their center.
+So parasol cell do provide a low chromatic information. The other explanation is that the number of cone by parasol cell I found is too low...
+
+<center>
+<img src="img/parasol_output.jpg" alt="" />
+</center>
+<center>
+    <i>Fig. 24. Parasol output (384x320 pixels representing 30°)</i>
+</center>
+
+Video on going
+
 
 ### bistratified cells (ongoing)
 
@@ -522,6 +586,7 @@ S-Cone remains isolated to the ganglion cell level too, due to connections with 
 
 [12] [Curcio, C. A., Sloan, K. R., Kalina, R. E., & Hendrickson, A. E. (1990). Human photoreceptor topography. The Journal of Comparative Neurology, 292(4), 497–523. doi:10.1002/cne.902920402](https://www.ncbi.nlm.nih.gov/pubmed/2324310)
 
+[13] [D.W. Marshak, in Encyclopedia of Neuroscience, 2009](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/parasol-cell)
 ## Annex
 
 ### Conversion of eccentricities in millimeters to degrees
