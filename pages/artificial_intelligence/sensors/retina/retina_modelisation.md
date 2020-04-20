@@ -335,7 +335,11 @@ For an OFF center cell it becomes
 
 \begin{equation}\frac{1}{2}\times(\frac{\sum_{x=0}^{n_p} c_p(x)}{n_p}-\frac{\sum_{x=0}^{n_i} c_i(x)}{n_i}) + 128\end{equation}
 
+
+I use the ratio $\frac{1}{3}$ between the central and the surrounding receptive radius.
+
 To apply this function for each of the three main ganglionar cells (midget, parasol and konio) I need to determine their receptive fields surfaces in cones.
+
 
 ### Midget cells
 
@@ -423,7 +427,7 @@ Here a video with the mGC response.
 
 ### Parasol cells
 
-Like midget cells, ON and OFF center parasol are covering the whole retina. However, unlike midget cells, parasol cells with the same type (ON or OFF) have their receptive field overlapping [13]. The distance between 2 neighbors cells of the same type represent half of their receptive field.
+Like midget cells, ON and OFF center parasol cells are covering the whole retina. However, unlike midget cells, parasol cells with the same type (ON or OFF) have their receptive field overlapping [13]. The distance between 2 neighbors cells center of the same type, represent half of their receptive field diameter.
 
 For the parasol cell, I did not find yet a study that shows the continuous distribution. I will use global statistics to approximate this distribution.
 
@@ -457,7 +461,7 @@ Below the density of parasol cells:
 <img src="img/parasol_density.png" alt="" />
 </center>
 <center>
-    <i>Fig. 23. Parasol ganglionar cell estimated density. This estimation represent 19% of the ganglionar cells that are not midget cells</i>
+    <i>Fig. 23. Parasol ganglionar cell estimated density</i>
 </center>
 
 From the density, it is possible to estimate the number of cones inside parasol cell receptive field knowing that the distance between 2 neighbors cells of the same type represent half of their receptive field.
