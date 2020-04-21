@@ -32,6 +32,7 @@ Plan
       - [Midget Notes](#midget-notes)
       - [Midget cell simulation results](#midget-cell-simulation-results)
     - [Parasol cells](#parasol-cells)
+      - [Explanation of parasolReceptiveCones equation:](#explanation-of-parasolreceptivecones-equation)
       - [Parasol cells results](#parasol-cells-results)
     - [bistratified cells (ongoing)](#bistratified-cells-ongoing)
     - [How many Ganglionar cells](#how-many-ganglionar-cells)
@@ -467,6 +468,7 @@ Below the density of parasol cells:
 From the density, it is possible to estimate the number of cones inside parasol cell receptive field knowing that the distance between 2 neighbors cells of the same type represent half of their receptive field.
 
 $parasolReceptiveCones(ecc) = 8\times \frac{densityCones(ecc)}{densityParasol(ecc)}$
+
 <center>
 <img src="img/cones_per_parasol_cell.png" alt="" />
 </center>
@@ -474,6 +476,14 @@ $parasolReceptiveCones(ecc) = 8\times \frac{densityCones(ecc)}{densityParasol(ec
     <i>Fig. 24. Cones in parasol cell receptive field</i>
 </center>
 
+#### Explanation of parasolReceptiveCones equation:
+The density of same type cells (ON or OFF) is $\frac{densityParasol(ecc)}{2}=d_{p2}$. If we divide the cone density by this density we obtain the ratio cones per parasol cells without overlapping. The radius of non overlapping fields can be found with: $R_{nonOverlapping}=\sqrt(\frac{ \frac{densityCones}{d_{p2}}\times \pi\times 0.5^2}{\pi})$. To overlap until the next cell center, $R_{nonOverlapping}$ has to be multiplied by 2. This gives $R_{parasol}=2\times R_{nonOverlapping}$. From this radius, it is possible to get the cone surface of one p-cell: $A_p=\pi R_{parasol}^2$. To get the number of cone we just divide this area by the surface of one cone which is $S_c=\pi 0.5^2$. By combining these results we have
+
+$parasolReceptiveCones(ecc) = A_p/S_c = \frac{\pi R_{parasol}^2}{\pi 0.5^2}$
+
+$parasolReceptiveCones(ecc) = (2\times 2\times R_{nonOverlapping})^2 = 2^4\times  \frac{densityCones}{d_{p2}} \times 2^{-2}$
+
+$parasolReceptiveCones(ecc) = 2^2 \times 2 \times \frac{densityCones(ecc)}{densityParasol(ecc)}$
 
 #### Parasol cells results
 
