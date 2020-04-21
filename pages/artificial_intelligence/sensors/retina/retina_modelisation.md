@@ -107,7 +107,7 @@ With my phone camera, I measured $L = 480 mm$ and $D = 320mm$. This give an hori
 
 To get the focal length in pixel unit, just use $(1)$ with L being your pixel width and D your focal.
 
-$f_{pix}=\frac{pixel\_width}{2*\tan(\frac{\alpha_{fov}}{2})}$
+$f_{pix}=\frac{pixelWidth}{2*\tan(\frac{\alpha_{fov}}{2})}$
 
 with:
 - $f_{pix}$ focal in pixel
@@ -223,7 +223,7 @@ with:
 
 To convert a cone position to a pixel position we use the function $P()$ below.
 
-$P(cone\_radial\_index)=I_{pixel}(I_{cone}^{-1}(cone\_radial\_index))$
+$P(coneRadialIndex)=I_{pixel}(I_{cone}^{-1}(coneRadialIndex))$
 
 <center>
 <a href="" rel=""><img src="img/cone_eccentricity_in_pixel.png" alt="Cones/Rods distribution" /></a>
@@ -383,7 +383,7 @@ Now to get the ratio midget GC/cone we divide the curve above by the cone densit
 
 As ON-Center and OFF-Center mGCs covers the whole retina, it is possible to assume that one in two is ON and the other OFF. In this situation, the ON-Center mGC density is half of the total mGC density. The same is true for the OFF-Center mGC density. From these assumptions we can estimate the number of cones per midget ganglionar cell (figure below). Near the fovea each ON mGC has exactly one cone and 20 at 30°.
 
-$midget\_receptive\_cones(ecc) = 2\times \frac{density\_cones(ecc)}{density\_midget(ecc)}$
+$midgetReceptiveCones(ecc) = 2\times \frac{densityCones(ecc)}{densityMidget(ecc)}$
 
 <center>
 <img src="img/mgc_on_center_receptive_field_cones.png" alt="" />
@@ -466,7 +466,7 @@ Below the density of parasol cells:
 
 From the density, it is possible to estimate the number of cones inside parasol cell receptive field knowing that the distance between 2 neighbors cells of the same type represent half of their receptive field.
 
-$parasol\_receptive\_cones(ecc) = 8\times \frac{density\_cones(ecc)}{density\_parasol(ecc)}$
+$parasolReceptiveCones(ecc) = 8\times \frac{densityCones(ecc)}{densityParasol(ecc)}$
 <center>
 <img src="img/cones_per_parasol_cell.png" alt="" />
 </center>
