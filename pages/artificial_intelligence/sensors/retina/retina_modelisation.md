@@ -35,8 +35,6 @@ Plan
       - [Explanation of parasolReceptiveCones equation:](#explanation-of-parasolreceptivecones-equation)
       - [Parasol cells results](#parasol-cells-results)
     - [bistratified cells (ongoing)](#bistratified-cells-ongoing)
-    - [How many Ganglionar cells](#how-many-ganglionar-cells)
-    - [How many cones per parasol cells?](#how-many-cones-per-parasol-cells)
   - [Notes](#notes)
   - [Biblio](#biblio)
   - [Annex](#annex)
@@ -505,27 +503,6 @@ Video on going
 
 S cones have 2 bistratified cells [9] .
 
-$spacing = 0.1^{(e+1)}$ ? http://www.rctn.org/bruno/psc129/handouts/size-sampling/size-sampling.html
-
-Red– green spectral opponency is consistent with random connections in central retina where the mixed cone ganglion cell surround is opposed by a single cone input to the receptive field center, but not in peripheral retina where centers get multiple cone inputs. [4]
-
-
-We have seen that there are mainly different ganglionar cells. Until now I simulated only two of them:
-- midget GCs which have a tiny receptive field and mainly goes to the parvo pathway
-- parasol GCs which have a larger receptive field and taget the magno pathway
-
-### How many Ganglionar cells
-4 millions cones | -> 1.6 million optic nerves [6].
-
-### How many cones per midget cells?
-In the fovea it can go from only one to ?
-
-Between 2 and 6 mm eccentricity, midget cells
-showed a steep, IO-fold increase in dendritic field size, followed by a more shallow, three- to fourfold increase in the
-retinal periphery, attaining a maximum diameter of -225 Am. [4]
-
-### How many cones per parasol cells?
-
 
 ## Notes
 - ON cells have 20% larger diameter receptive field than off [3]
@@ -543,6 +520,13 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 - Cross-correlations are generated from simultaneous recording of two ganglion cell spike trains. Impulses from the first cell set the zero time around which impulse firing rate histograms for the second cell are generated. The histogram is accumulated for every impulse fired by the first cell. When two neighboring ON-center cells are so paired, a large central peak in firing rate for the second ON cell is seen (Fig. 41, red, left). A similar pattern is seen when two OFF cells are recorded (Fig. 41, blue right). In both cases, increased firing rate represents an increased likelihood that if one cell fires, the other will also. Impulse generation in the two cells is not independent. The cells share common excitatory inputs sources and are likely to be simultaneously excited. [5]
 
 - Ganglion cells develop a high frequency (~100 Hz) oscillatory firing pattern when presented with localized bright stimuli. [5]
+
+- How many Ganglionar cells: 4 millions cones -> 1.6 million optic nerves [6].
+
+- Midget cell receptive radius:
+Between 2 and 6 mm eccentricity, midget cells
+showed a steep, IO-fold increase in dendritic field size, followed by a more shallow, three- to fourfold increase in the
+retinal periphery, attaining a maximum diameter of -225 Am. [4]
 
 |  position   | diameter | field of view ° | cone density  |
 | :---------: | :------: | :-------------: | :-----------: |
