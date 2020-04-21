@@ -99,7 +99,7 @@ In the retina, they are mainly red and green cone. They are very few blue cones.
 
 --------------------------------------------------------------------------------
 ##  What processing is done in the retina
-Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occurring in the retina with different cells than cones and rods. That is why the optic nerve contains only 1.6 million fiber [4] for 125 million photo receptors.
+Now that the light is converted to nerve impulses by the cones and rods you may think the retina has finished its job and send everything to the optic nerve. It is not the case, there is a preprocessing occurring in the retina with different cells than cones and rods. That is why the optic nerve contains only 1.6 million fiber [6] for 125 million photo receptors.
 
 Their are three main layers in the retina. The one deepest in the retina is the outer segment layer. It contains the photoreceptors (cones and rods).
 
@@ -122,7 +122,7 @@ The last main layer is the ganglion cell layer. It contains ganglionar cells. Th
 <a href="https://www.researchgate.net/figure/Schematic-depicting-the-division-of-a-cone-signal-into-ON-and-OFF-pathways-The-ON_fig4_267306312" rel="some text"><img src="img/on_off_Pathways.png" alt="" /></a>
 </center>
 <center>
-    <i>Fig. 9. ON OFF pathway (from [3])</i>
+    <i>Fig. 9. ON OFF pathway (from [17])</i>
 </center>
 
 To get high acuity the ratio of ganglionar cells/photoreceptor should be low. That is why in the fovea one cone is connected to one ganglionar cell trough one bipolar cell. The further you get, the more cones and rods are indirectly linked to one ganglionar cell. The receptive field of a ganglionar cell is increasing while you go far from the fovea.
@@ -169,10 +169,10 @@ It also respond to contours as shown in the figure bellow.
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-According to their receptive field ganglionar cells (GCs) are split into at least 3 categories.
+According to their receptive field and their response to stimuli, ganglionar cells (GCs), are split into at least 17 categories[16]. The three most common are:
 - Midget cells: they have the smallest receptive field. They represent 80% of GCs. They are often connected to a bipolar cell connected with only one cone. They respond well to red-green or color-opponents stimulation.
 - Parasol cells: They have a large responsive field. As so, their center and their surrounding contains a mix of red and green cones in equal proportions that prevent them to differentiate colors. They can only be used to send achromatic information like luminance. They represent 10% of all GCs.
-- Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They are good to compare S cones and L-M averaged cones [4]. They represents 8-10% of GCs.
+- Bistratified cells: They have a moderate responsive field. This is an intermediate category between midget cells and parasol cells. They are good to compare S cones and L-M averaged cones [6]. They represents 8-10% of GCs.
 
 <center>
 <a href="https://thebrain.mcgill.ca/flash/a/a_02/a_02_cl/a_02_cl_vis/a_02_cl_vis.html" rel="some text"><img src="img/midget_parasol_cells.png" alt="midget, parasol and small bistratified cells" /></a>
@@ -212,7 +212,7 @@ Layers from 3 to 6 are called parvocellular layers and layers 1,2 are called mag
     <img src="img/copyleft_logo.png" height="12" alt="copy-left" />
 </center>
 
-There is also the Konio pathway which project on the ventral part of each parvo and magno layers. It is less understood than the two other pathways. It can be involved with seasonal mood change. It contains mainly bistratified cells [5].
+There is also the Konio pathway which project on the ventral part of each parvo and magno layers. It is less understood than the two other pathways. It can be involved with seasonal mood change. It contains mainly bistratified cells [18].
 
 
 Ganglionar cells using the parvo pathway can be called P-Type cells. The ones using the magno pathway are called M-Type cells. The same for the K-Type cells using the konio pathway.
@@ -223,7 +223,6 @@ M-Type cells represent 10% of all ganglionar cells. They are mainly parasol cell
 
 K-Type cells represent 8 to 10% of all ganglionar cells. They are mainly bistratified cells which receive S (blue cones) - LM (red and green) opposition informations.
 
-I tried to sum up in the diagram below the distribution of all cells, according to their position to the center of the retina. (I did not put amacrine cells since I don't have enough info)
 
 ![alt text](img/retina.png "Retina image")
 <center><i>Fig. 14. Retina layers</i></center>
@@ -249,14 +248,40 @@ I made a page on a retina simulation from a camera: [retina modelisation](retina
 ----------------------------------------
 ## Biblio
 
-[1][the brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
+[1][The brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 
-[2] [Dacey, DM. "The mosaic of midget ganglion cells in the human retina." Journal of Neuroscience 13.12 (1993): 5334-5355. Web. 22 Mar. 2020.](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)
+[2] [Dacey, DM. "The mosaic of midget ganglion cells in the human retina." Journal of Neuroscience 13.12 (1993): 5334-5355.](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)
 
-[3] [Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
+[3] [Chichilnisky EJ, Kalmar RS. Functional asymmetries in ON and OFF ganglion cells of primate retina. The Journal of Neuroscience : the Official Journal of the Society for Neuroscience. 2002 Apr;22(7):2737-2747. DOI: 10.1523/JNEUROSCI.22-07-02737.2002.](https://www.jneurosci.org/content/jneuro/22/7/2737.full.pdf)
 
-[4] [Yoonessi A, Yoonessi A. Functional assessment of magno, parvo and konio-cellular pathways; current state and future clinical applications. J Ophthalmic Vis Res. 2011;6(2):119–126.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306093/#)
+[4] [Diller L, Packer OS, Verweij J, McMahon MJ, Williams DR, Dacey DM. L and M cone contributions to the midget and parasol ganglion cell receptive fields of macaque monkey retina. J Neurosci. 2004;24(5):1079–1088. doi:10.1523/JNEUROSCI.3828-03.2004](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6793593/)
 
-[5] [Carlos Carvajal, Thierry Viéville, Frédéric Alexandre. Konio Pathway: An Instinctive Visual Mecha-nism for Survival and Decision Making? Oct 2012, Bordeaux, France. hal-00756471](https://hal.inria.fr/hal-00756471/document)
+[5] [Nelson R. Visual Responses of Ganglion Cells. 2001 May 1 [Updated 2007 Apr 10]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11550/pdf/Bookshelf_NBK11550.pdf)
+
+[6] [Yoonessi A, Yoonessi A. Functional assessment of magno, parvo and konio-cellular pathways; current state and future clinical applications. J Ophthalmic Vis Res. 2011;6(2):119–126.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306093/#)
+
+[7] [Kolb H. Facts and Figures Concerning the Human Retina. 2005 May 1 [Updated 2007 Jul 5]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
+
+[8] [webvision.med.utah.edu, Part II Anatomy and Physiology of the retina](https://webvision.med.utah.edu/book/part-ii-anatomy-and-physiology-of-the-retina/photoreceptors/)
+
+[9] [Ahmad K. M. Klug K. Herr S. Sterling P. Schein S. (2003). Cell density ratios in a foveal patch in macaque retina. Visual Neuroscience, 20 (2), 189– 209](https://www.ncbi.nlm.nih.gov/pubmed/12916740)
+
+[10] [Andrew B. Watson; A formula for human retinal ganglion cell receptive field density as a function of visual field location. Journal of Vision 2014;14(7):15. doi: https://doi.org/10.1167/14.7.15.](https://jov.arvojournals.org/article.aspx?articleid=2279458)
+
+[11] [Drasdo N. Fowler C. W. (1974). Non-linear projection of the retinal image in a wide-angle schematic eye. British Journal of Ophthalmology, 58 (8), 709– 714.](http://www.ncbi.nlm.nih.gov/pubmed/4433482)
+
+[12] [Curcio, C. A., Sloan, K. R., Kalina, R. E., & Hendrickson, A. E. (1990). Human photoreceptor topography. The Journal of Comparative Neurology, 292(4), 497–523. doi:10.1002/cne.902920402](https://www.ncbi.nlm.nih.gov/pubmed/2324310)
+
+[13] [D.W. Marshak, in Encyclopedia of Neuroscience, 2009](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/parasol-cell)
+
+[14] [M. B.Manookin, S. PattersonNeural Mechanisms Mediating Motion Sensitivity in Parasol Ganglion Cells of the Primate Retina, 2018](https://www.sciencedirect.com/science/article/pii/S0896627318301053)
+
+[15][Watanabe, M., and Rodieck, R. W. (1989). Parasol and midget ganglion cells of the primate retina. J. Comp. Neurol. 289, 434–454. doi: 10.1002/cne.902890308](https://onlinelibrary.wiley.com/doi/abs/10.1002/cne.902890308)
+
+[16] [Field, G. D., and Chichilnisky, E. J. (2007). Information processing in the primate retina: circuitry and coding. Annu. Rev. Neurosci. 30, 1–30. doi: 10.1146/annurev.neuro.30.051606.094252](https://www.annualreviews.org/doi/pdf/10.1146/annurev.neuro.30.051606.094252)
+
+[17] [Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
+
+[18] [Carlos Carvajal, Thierry Viéville, Frédéric Alexandre. Konio Pathway: An Instinctive Visual Mecha-nism for Survival and Decision Making? Oct 2012, Bordeaux, France. hal-00756471](https://hal.inria.fr/hal-00756471/document)
 
 ...

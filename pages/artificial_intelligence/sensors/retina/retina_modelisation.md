@@ -34,6 +34,7 @@ Plan
     - [Parasol cells](#parasol-cells)
       - [Explanation of parasolReceptiveCones equation:](#explanation-of-parasolreceptivecones-equation)
       - [Parasol cells results](#parasol-cells-results)
+      - [Parasol Notes](#parasol-notes)
     - [bistratified cells (ongoing)](#bistratified-cells-ongoing)
   - [Notes](#notes)
   - [Biblio](#biblio)
@@ -498,6 +499,8 @@ So parasol cell do provide a low chromatic information. The other explanation is
 
 Video on going
 
+#### Parasol Notes
+It seems that parasol cells are also sensitive to saptio-temporal changes that are not considered in the simulation yet.
 
 ### bistratified cells (ongoing)
 
@@ -505,7 +508,9 @@ S cones have 2 bistratified cells [9] .
 
 
 ## Notes
-- ON cells have 20% larger diameter receptive field than off [3]
+- ON cells have 20% larger diameter receptive field than off [3]. I did not simulate this for now.
+- Midget ganglionar cell receptive field is ellipsoidal [15]. You can see images in [15]. [16] have a representation of midget, parasol and bistratified ganlionar cells surfaces.
+- [16] Talk aslo about the 17 ganglionar cells types: midget, parasol, sparse, giant sparse, smooth, Recursive, Broad thorny, thorny, bistratified recursive, bistratified large, bistratified small...
 
 - In the central visualfield, 80% of the par-vocellular LGN neurons showed center surround segregation of Land  M  cone  input. [4]
 
@@ -588,6 +593,19 @@ S-Cone remains isolated to the ganglion cell level too, due to connections with 
 [12] [Curcio, C. A., Sloan, K. R., Kalina, R. E., & Hendrickson, A. E. (1990). Human photoreceptor topography. The Journal of Comparative Neurology, 292(4), 497–523. doi:10.1002/cne.902920402](https://www.ncbi.nlm.nih.gov/pubmed/2324310)
 
 [13] [D.W. Marshak, in Encyclopedia of Neuroscience, 2009](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/parasol-cell)
+
+[14] [M. B.Manookin, S. PattersonNeural Mechanisms Mediating Motion Sensitivity in Parasol Ganglion Cells of the Primate Retina, 2018](https://www.sciencedirect.com/science/article/pii/S0896627318301053)
+
+[15][Watanabe, M., and Rodieck, R. W. (1989). Parasol and midget ganglion cells of the primate retina. J. Comp. Neurol. 289, 434–454. doi: 10.1002/cne.902890308](https://onlinelibrary.wiley.com/doi/abs/10.1002/cne.902890308)
+
+[16] [Field, G. D., and Chichilnisky, E. J. (2007). Information processing in the primate retina: circuitry and coding. Annu. Rev. Neurosci. 30, 1–30. doi: 10.1146/annurev.neuro.30.051606.094252](https://www.annualreviews.org/doi/pdf/10.1146/annurev.neuro.30.051606.094252)
+
+[17] [Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
+
+[18] [Carlos Carvajal, Thierry Viéville, Frédéric Alexandre. Konio Pathway: An Instinctive Visual Mecha-nism for Survival and Decision Making? Oct 2012, Bordeaux, France. hal-00756471](https://hal.inria.fr/hal-00756471/document)
+
+
+[???][Greene G, Wachtler T and Gollisch T (2011). A model of retinal ganglion cell processing under natural viewing conditions.. Front. Comput. Neurosci. Conference Abstract: BC11 : Computational Neuroscience & Neurotechnology Bernstein Conference & Neurex Annual Meeting 2011. doi: 10.3389/conf.fncom.2011.53.00224](https://www.frontiersin.org/articles/10.3389/fnana.2015.00122/full)
 ## Annex
 
 ### Conversion of eccentricities in millimeters to degrees
