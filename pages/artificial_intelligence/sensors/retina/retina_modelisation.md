@@ -3,13 +3,16 @@ layout: default
 ---
 
 # Retina Modelisation from a Camera
- (redaction ongoing)
 
-This section describe one simulation of human retina from a standard camera (smartphone like cameras). I assume you already have read the page [The retina](retina.html).
+This section describe a simulation of human retina from a standard camera (smartphone like cameras). I assume you already have read the page [The retina](retina.html).
+The output of this simulation are two 2D matrices representing the pulses frequencies going through the optic nerve to the brain. These two outputs represent the two pathways in the brain: parvo and magno.
 
-Just to recap the context of this simulation, my final goal is to create a biomimetic artificial intelligence using biomimetic sensors (like the retina).
+To achieve this, we first convert the pixel image to cones output respecting as much as possible the distribution of the different cones along the eccentricity of the retina.
+
+Then we directly simulate the ganglionar cells frequencies outputs, from the cones result, considering their receptive fields.
 
 Plan
+
 - [Retina Modelisation from a Camera](#retina-modelisation-from-a-camera)
   - [Photo Receptors Simulation](#photo-receptors-simulation)
     - [Pixel density](#pixel-density)
@@ -41,10 +44,11 @@ Plan
   - [Annex](#annex)
     - [Conversion of eccentricities in millimeters to degrees](#conversion-of-eccentricities-in-millimeters-to-degrees)
 
-----------------------------------------------------------
+---
+
 ## Photo Receptors Simulation
 
-As you may remember there are around 125 million photoreceptors in the retina: 120 million rods and between 4 and 5 million cones. As rods are saturated during days, I won't consider them. I will only simulate cones.
+As you may remember there are around 125 million photoreceptors in the retina: 120 million rods and between 4 and 5 million cones. As rods are saturated during the day, I won't consider them here. I will only simulate cones.
 
 Several technologies can capture light, for example the CMOS sensor (complementary metal-oxide semiconductor), which converts light to electrons. I won't detail here how it works but I want to show you the response of the pixels to light. It looks like a lot like cones but the sensitivity peaks are shifted.
 
@@ -54,6 +58,7 @@ Several technologies can capture light, for example the CMOS sensor (complementa
 <center>
     <i>Fig. 1. Pixels sensitivity of one CMOS sensor</i>
 </center>
+
 <center>
 <a href="https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html" rel="some text"><img src="img/cones_response_only.jpg" alt="Cones/Rods distribution" /></a>
 </center>
@@ -84,6 +89,7 @@ To get the pixel density we need to get the focal length of the camera in pixel 
 If like me, you cannot find the focal length of your camera nor the field of view, you can estimate it with the procedure below.
 
 First, choose an object, put your camera so that the object takes exactly the width of your camera view. Note the values L and D.
+
 <center>
 <a href="" rel="some text"><img src="img/pinhole.jpg" alt="Cones/Rods distribution" /></a>
 </center>
@@ -94,7 +100,8 @@ First, choose an object, put your camera so that the object takes exactly the wi
 Then by using simple trigonometry relations $(1) (2)$ you can determine the field of view $\alpha$
 
 \begin{equation}\tan(\frac{\alpha}{2}) = \frac{L}{2D}\end{equation}
- with:
+with:
+
 - $\alpha$ being the field of view
 - $L$ Object size
 - $D$ Distance to Object
@@ -110,6 +117,7 @@ To get the focal length in pixel unit, just use $(1)$ with L being your pixel wi
 $f_{pix}=\frac{pixelWidth}{2*\tan(\frac{\alpha_{fov}}{2})}$
 
 with:
+
 - $f_{pix}$ focal in pixel
 - $\alpha_{fov}$ fov measured in the previous step
 
@@ -119,15 +127,16 @@ On the 4K camera I found $f_{pix}=2548$ pixels.
 
 With the camera focal, in pixels unit, we can estimate the number of pixels along a 1° line, at any eccentricity:
 
-\begin{equation}g(ecc)=f_{pix}*(\tan(ecc+0.5)-\tan(ecc-0.5))\end{equation}
+\begin{equation}g(ecc)=f\_{pix}\times(\tan(ecc+0.5)-\tan(ecc-0.5))\end{equation}
 
 with
+
 - $ecc$ eccentricity in degrees
 - $f_{pix}$ focal in pixel unit
 
 To get an estimation of the density we just have to square the function above.
 
-\begin{equation}d_{pix}(ecc)=g(ecc)^{2}\end{equation}
+\begin{equation}d\_{pix}(ecc)=g(ecc)^{2}\end{equation}
 
 <center>
 <a href="" rel=""><img src="img/pixel_density_deg.png" alt="" /></a>
@@ -143,6 +152,7 @@ To compare retinal and camera densities I converted all retinal densities from m
 $a(r_{deg}) = 0.0752 + 5.846\times10^{-5}r_{deg} - 1.064\times10^{-5}r_{deg}^2 +4.116\times10^{-8}r_{deg}^3$
 
 with
+
 - $a$ is the ratio of areas mm2/deg2
 
 By multiplying the cone density by this factor I obtained the figure 6 below. The peak density is around 15 000 cones/deg² and drop to 400 at 20°.
@@ -157,6 +167,7 @@ By multiplying the cone density by this factor I obtained the figure 6 below. Th
 ### Pixel vs Cone density
 
 In the figure below you can see the cone density in the eye and in the camera. The density in the fovea area (5°), is clearly not enough in the 4K camera. However the peripheral area can easily be simulated.
+
 <center>
 <a href="" rel=""><img src="img/cone_vs_camera_density.png" alt="" /></a>
 </center>
@@ -165,6 +176,7 @@ In the figure below you can see the cone density in the eye and in the camera. T
 </center>
 
 In the fovea area, the camera does not have a density high enough. Here there are two choices: either reuse the same pixel for several cones or drop some cones to match the camera density (cf figure below red curve).
+
 <center>
 <a href="" rel="some text"><img src="img/cone_simulated_distribution.png" alt="Cones/Rods distribution" /></a>
 </center>
@@ -184,6 +196,7 @@ To find the number of pixels by simulated cone, we just need to divide the camer
 </center>
 
 ### Cone density integral
+
 In order to know the number of cones from the center of the fovea to any eccentricity, we can integrate the cone density curve (cf figure below).
 I took the values derived from Curcio work [12] provided by [10].
 I used only the temporal and nasal cone densities. I have noticed that the fovea diameter in cone is only 340 cones instead of the 500 cones reported by a lot of papers. This difference may come from the data I used which does not represent the average cone distribution (or a mistake in my calculations ^^)...
@@ -191,6 +204,7 @@ I used only the temporal and nasal cone densities. I have noticed that the fovea
 $I_{cone}(ecc)=\int_{i=0}^{ecc}D_{cone}(i)$
 
 with:
+
 - $D_{cone}(x)$ density of cone by $deg^{-2}$
 - $ecc$ eccentricity in $deg$
 
@@ -204,11 +218,13 @@ with:
 The curve is flattened around 16° due to the optic nerve.
 
 ### Pixel density integral
+
 The pixel density can also be integrated (fig below). Arround 36° the curve flatten because the end of the sensor array has been reached (3680/2 pixels for the 4K camera).
 
 $I_{pixel}(ecc)=\int_{i=0}^{ecc}D_{pixel}(i)$
 
 with:
+
 - $D_{pixel}(x)$ density of pixels by $deg^{-2}$
 - $ecc$ eccentricity in $deg$
 
@@ -232,7 +248,6 @@ $P(coneRadialIndex)=I_{pixel}(I_{cone}^{-1}(coneRadialIndex))$
     <i>Fig. 12. Cones in pixel coordinate</i>
 </center>
 
-
 ### Cone distribution simulation
 
 <center>
@@ -243,6 +258,7 @@ $P(coneRadialIndex)=I_{pixel}(I_{cone}^{-1}(coneRadialIndex))$
 </center>
 
 From the image above, the following cone simulation has been made:
+
 <center>
 <a href="" rel="some text"><img src="img/cones_output.jpg" alt="Cones/Rods distribution" /></a>
 </center>
@@ -290,6 +306,7 @@ The real cone response is a membrane potential change that decrease rapidly. Wit
 </center>
 
 I also made a video of the cone simulation. The camera pass over green, blue and red objects.
+
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x0XqHhvJyVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
@@ -303,43 +320,42 @@ In typical cameras, pixels are either triggered at once (global shutter) or line
 In the eye, each photoreceptors can be triggered at any time.
 
 Cameras integrate light over time whereas cones respond to local luminosity changes. If you put your camera still to look one particular area and let it there, all pixels responses will not change until the environment changes. In the same situation the response of the cone will rise and then decrease overtime until it reach 0 millivolts. Thanks to this behaviour, cones react on local changes in intensity. Camera companies are trying to mimic this 'local luminosity' by using the HDR (High Dynamic Range) technology which take several pictures with different exposures and combine them afterward to avoid dark and saturated areas.
-*Note: [Event cameras](https://en.wikipedia.org/wiki/Event_camera) may be more biomimetic but they are quite expensive with a low resolution.*
+_Note: [Event cameras](https://en.wikipedia.org/wiki/Event_camera) may be more biomimetic but they are quite expensive with a low resolution._
 
 For the similation I have no choice but to ignore these differences.
 
-----------------------------------------------------------
+---
 
 ## Bipolar cell modelisation ?
+
 I will directly simulate ganglionar cells response from cones input. I will reproduce the On/Off center behaviour at the ganglionar level. The same is true for H cells.
 
-----------------------------------------------------------
+---
 
-## Ganglionar cells modelisation (redaction ongoing)
+## Ganglionar cells modelisation
 
-Most of the ganglionar cells have a similar ON/OFF-center and ON/OFF-surround response. The main differences come from their receptive field (I don't consider response time here that can also be different).
-
-### Ganglionar cell response modelisation
+Ganglionar cells (GC) are the last cells in the retina. This means the brain receives their outputs.  
+Most of the GC have a similar ON/OFF-center and ON/OFF-surround response. The main differences come from their receptive field (I don't consider response time here that can also be different).
 
 To compute a ON-Center ganglionar response, we get the mean cone response in the central receptive field and subsctract it by the mean cone response of the peripheral receptive field.
 
-As the simulated cone response is between 0 and 255, the result of this operation is between -255 and 255. In order to keep a value between 0 and 255 we center the value on 128.
+As the simulated cone response is between 0 and 255, the result of this operation is between -255 and 255. In order to keep a value between 0 and 255 we center the value on 128. The value 0 means that the cell pulse at 0 Hz, the value 255 represent a 100Hz pulsation.
 
-\begin{equation}\frac{1}{2}\times(\frac{\sum_{x=0}^{n_i} c_i(x)}{n_i}-\frac{\sum_{x=0}^{n_p} c_p(x)}{n_p}) + 128\end{equation}
+\begin{equation}\frac{1}{2}\times(\frac{\sum\_{x=0}^{n_i} c_i(x)}{n_i}-\frac{\sum\_{x=0}^{n_p} c_p(x)}{n_p})+128\end{equation}
 
 with:
+
 - $n_i,n_p$: total number of inner (or peripheral) cones
 - $c_i(x)$: function returning the response from the xth inner cone
 - $c_p(x)$: function returning the response from the xth peripheral cone
 
 For an OFF center cell it becomes
 
-\begin{equation}\frac{1}{2}\times(\frac{\sum_{x=0}^{n_p} c_p(x)}{n_p}-\frac{\sum_{x=0}^{n_i} c_i(x)}{n_i}) + 128\end{equation}
-
+\begin{equation}\frac{1}{2}\times(\frac{\sum\_{x=0}^{n_p} c_p(x)}{n_p}-\frac{\sum\_{x=0}^{n_i} c_i(x)}{n_i}) + 128\end{equation}
 
 I use the ratio $\frac{1}{3}$ between the central and the surrounding receptive radius.
 
 To apply this function for each of the three main ganglionar cells (midget, parasol and konio) I need to determine their receptive fields surfaces in cones.
-
 
 ### Midget cells
 
@@ -353,6 +369,7 @@ To get the cone/midget ratio outside the fovea, I used Andrew B. Watson Midget R
 $density_{midgetf}(r_{deg},k)=2d_c(0)(1+\frac{r_{deg}}{r_m})^{-1}\times[a_k(1+\frac{r_{deg}}{r_{2,k}})^{-2}+(1-a_k)\exp(-\frac{r_{deg}}{r_{e,k}}))]$
 
 with
+
 - $d_c$ cone density per degrees². The fovea density peak is 14 804 cones/deg²
 - $r2$ excentricity at which the density is reduced by a factor 4
 - $ak$ is the weighting of the first term
@@ -361,6 +378,7 @@ with
 - $r_m$ 41.03°
 
 For the simulation I used only the nasal meridian values given by [10].
+
 - $a=0.9729$
 - $r_2=1.084$
 - $r_e=7.633$
@@ -393,6 +411,7 @@ $midgetReceptiveCones(ecc) = 2\times \frac{densityCones(ecc)}{densityMidget(ecc)
 </center>
 
 From the number of cones by mGC we can compute the radius in cones of each mGC (cf graph below).
+
 <center>
 <img src="img/GCm_radius.png" alt="" />
 </center>
@@ -403,6 +422,7 @@ From the number of cones by mGC we can compute the radius in cones of each mGC (
 Until now, we considered only the total radius of the mGC receptive field. Some studies [TODO add ref] have shown that there is a ratio of 1/3rd between the central and the peripheral diameter.
 
 #### Midget Notes
+
 Midget cells never have a S cone in their inner area [9] however they can have ones in their outer area.
 
 OFF-center cells have a smaller dentric field and higher cell density (1.7 times more [2]). I did not considered this for now but It could be more interresting because if you keep a ratio of 1.0, the ON and OFF responses are just the opposite, It does not bring additionnal infos.
@@ -412,6 +432,7 @@ OFF-center cells have a smaller dentric field and higher cell density (1.7 times
 For the visualisation of the midget ganglionar cell response, I used a colormap (shown in the top left corner of the figure below). If the ganglionar cell has a mean frequency response, the color is blue. The further you get from this value the more red it becomes. By doing this we cannot distinguish high/low reponses. However, as the ON and OFF have identical receptive fields, their response are always opposite. This representation is not perfect but it is the best I have found so far.
 
 As you can notice there is a central disk, it represents the area where one midget cell have only one central cone without any surrounding. Once you cross this area, midget cells responds to L/M oppositions.
+
 <center>
 <img src="img/mgc_output.png" alt="" />
 </center>
@@ -419,8 +440,8 @@ As you can notice there is a central disk, it represents the area where one midg
     <i>Fig. 23. Midget ganglionar cell response. You can also see the original image and the cone response (top left and bottom left)</i>
 </center>
 
-
 Here a video with the mGC response.
+
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H_fmwQq9_Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
@@ -442,12 +463,14 @@ I will assume that the parasol density is a constant fraction of the remaining g
 $density_{parasol}=C\times density_{all}+(density_{all}-density_{midget})\times K$
 
 I find $C$ and $K$ using 2 positions
+
 - at 2.16° where $density_{parasol} = 5\%$ of $density_{all}$
 - at 50° where $density_{parasol} = 15\%$ of $density_{all}$
 
 I choose 2.16° because it is at this position that the midget cells represent 95% of all cells.
 
 This gives me $C=0.04$ and $K=0.2$. You can find below the fraction of parasol cell using this values:
+
 <center>
 <img src="img/parasol_fraction.png" alt="" />
 </center>
@@ -476,6 +499,7 @@ $parasolReceptiveCones(ecc) = 8\times \frac{densityCones(ecc)}{densityParasol(ec
 </center>
 
 #### Explanation of parasolReceptiveCones equation:
+
 The density of same type cells (ON or OFF) is $\frac{densityParasol(ecc)}{2}=d_{p2}$. If we divide the cone density by this density we obtain the ratio cones per parasol cells without overlapping. The radius of non overlapping fields can be found with: $R_{nonOverlapping}=\sqrt(\frac{ \frac{densityCones}{d_{p2}}\times \pi\times 0.5^2}{\pi})$. To overlap until the next cell center, $R_{nonOverlapping}$ has to be multiplied by 2. This gives $R_{parasol}=2\times R_{nonOverlapping}$. From this radius, it is possible to get the cone surface of one p-cell: $A_p=\pi R_{parasol}^2$. To get the number of cone we just divide this area by the surface of one cone which is $S_c=\pi 0.5^2$. By combining these results we have
 
 $parasolReceptiveCones(ecc) = A_p/S_c = \frac{\pi R_{parasol}^2}{\pi 0.5^2}$
@@ -500,21 +524,22 @@ So parasol cell do provide a low chromatic information. The other explanation is
 Video on going
 
 #### Parasol Notes
+
 It seems that parasol cells are also sensitive to saptio-temporal changes that are not considered in the simulation yet.
 
 ### bistratified cells (ongoing)
 
 S cones have 2 bistratified cells [9] .
 
-
 ## Notes
+
 - ON cells have 20% larger diameter receptive field than off [3]. I did not simulate this for now.
 - Midget ganglionar cell receptive field is ellipsoidal [15]. You can see images in [15]. [16] have a representation of midget, parasol and bistratified ganlionar cells surfaces.
 - [16] Talk aslo about the 17 ganglionar cells types: midget, parasol, sparse, giant sparse, smooth, Recursive, Broad thorny, thorny, bistratified recursive, bistratified large, bistratified small...
 
-- In the central visualfield, 80% of the par-vocellular LGN neurons showed center surround segregation of Land  M  cone  input. [4]
+- In the central visualfield, 80% of the par-vocellular LGN neurons showed center surround segregation of Land M cone input. [4]
 
-- In the peripheralretina between 20 and 50 degrees of eccentricity, Martin et al.(2001)  found  that  80%  of  tonically  responding,  presumably midget, ganglion cells were opponent.
+- In the peripheralretina between 20 and 50 degrees of eccentricity, Martin et al.(2001) found that 80% of tonically responding, presumably midget, ganglion cells were opponent.
 
 - tonically responding means constant output under constant illumination. It should be midget cells
 
@@ -529,9 +554,9 @@ S cones have 2 bistratified cells [9] .
 - How many Ganglionar cells: 4 millions cones -> 1.6 million optic nerves [6].
 
 - Midget cell receptive radius:
-Between 2 and 6 mm eccentricity, midget cells
-showed a steep, IO-fold increase in dendritic field size, followed by a more shallow, three- to fourfold increase in the
-retinal periphery, attaining a maximum diameter of -225 Am. [4]
+  Between 2 and 6 mm eccentricity, midget cells
+  showed a steep, IO-fold increase in dendritic field size, followed by a more shallow, three- to fourfold increase in the
+  retinal periphery, attaining a maximum diameter of -225 Am. [4]
 
 |  position   | diameter | field of view ° | cone density  |
 | :---------: | :------: | :-------------: | :-----------: |
@@ -542,7 +567,6 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 | position | ratio GC/cone |
 | :------: | :-----------: |
 |   2.2°   |      2:1      |
-
 
 | diameter | field of view ° |
 | :------: | :-------------: |
@@ -556,6 +580,7 @@ retinal periphery, attaining a maximum diameter of -225 Am. [4]
 |      0 to 2       |                5-10                 |                 x 1                  |
 |      2 to 6       |                50-80                |                 x 10                 |
 |       more        |              up to 225              |              x 30 - 40               |
+
 <center>
     <i>Tab. 1. Midget dentric field size by eccentricity (Data taken from [2])</i>
 </center>
@@ -568,50 +593,50 @@ S-Cone remains isolated to the ganglion cell level too, due to connections with 
 
 ## Biblio
 
-[1][The brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
+[1\][The brain from top to bottom](https://thebrain.mcgill.ca/flash/i/i_02/i_02_cl/i_02_cl_vis/i_02_cl_vis.html)
 
-[2] [Dacey, DM. "The mosaic of midget ganglion cells in the human retina." Journal of Neuroscience 13.12 (1993): 5334-5355.](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)
+[2\][Dacey, DM. "The mosaic of midget ganglion cells in the human retina." Journal of Neuroscience 13.12 (1993): 5334-5355.](https://www.jneurosci.org/content/jneuro/13/12/5334.full.pdf)
 
-[3] [Chichilnisky EJ, Kalmar RS. Functional asymmetries in ON and OFF ganglion cells of primate retina. The Journal of Neuroscience : the Official Journal of the Society for Neuroscience. 2002 Apr;22(7):2737-2747. DOI: 10.1523/JNEUROSCI.22-07-02737.2002.](https://www.jneurosci.org/content/jneuro/22/7/2737.full.pdf)
+[3\][Chichilnisky EJ, Kalmar RS. Functional asymmetries in ON and OFF ganglion cells of primate retina. The Journal of Neuroscience : the Official Journal of the Society for Neuroscience. 2002 Apr;22(7):2737-2747. DOI: 10.1523/JNEUROSCI.22-07-02737.2002.](https://www.jneurosci.org/content/jneuro/22/7/2737.full.pdf)
 
-[4] [Diller L, Packer OS, Verweij J, McMahon MJ, Williams DR, Dacey DM. L and M cone contributions to the midget and parasol ganglion cell receptive fields of macaque monkey retina. J Neurosci. 2004;24(5):1079–1088. doi:10.1523/JNEUROSCI.3828-03.2004](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6793593/)
+[4\][Diller L, Packer OS, Verweij J, McMahon MJ, Williams DR, Dacey DM. L and M cone contributions to the midget and parasol ganglion cell receptive fields of macaque monkey retina. J Neurosci. 2004;24(5):1079–1088. doi:10.1523/JNEUROSCI.3828-03.2004](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6793593/)
 
-[5] [Nelson R. Visual Responses of Ganglion Cells. 2001 May 1 [Updated 2007 Apr 10]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11550/pdf/Bookshelf_NBK11550.pdf)
+[5\][Nelson R. Visual Responses of Ganglion Cells. 2001 May 1 [Updated 2007 Apr 10]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11550/pdf/Bookshelf_NBK11550.pdf)
 
-[6] [Yoonessi A, Yoonessi A. Functional assessment of magno, parvo and konio-cellular pathways; current state and future clinical applications. J Ophthalmic Vis Res. 2011;6(2):119–126.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306093/#)
+[6\][Yoonessi A, Yoonessi A. Functional assessment of magno, parvo and konio-cellular pathways; current state and future clinical applications. J Ophthalmic Vis Res. 2011;6(2):119–126.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3306093/#)
 
-[7] [Kolb H. Facts and Figures Concerning the Human Retina. 2005 May 1 [Updated 2007 Jul 5]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
+[7\][Kolb H. Facts and Figures Concerning the Human Retina. 2005 May 1 [Updated 2007 Jul 5]. In: Kolb H, Fernandez E, Nelson R, editors. Webvision: The Organization of the Retina and Visual System [Internet]. Salt Lake City (UT): University of Utah Health Sciences Center; 1995-.](https://www.ncbi.nlm.nih.gov/books/NBK11556/)
 
-[8] [webvision.med.utah.edu, Part II Anatomy and Physiology of the retina](https://webvision.med.utah.edu/book/part-ii-anatomy-and-physiology-of-the-retina/photoreceptors/)
+[8\][webvision.med.utah.edu, Part II Anatomy and Physiology of the retina](https://webvision.med.utah.edu/book/part-ii-anatomy-and-physiology-of-the-retina/photoreceptors/)
 
-[9] [Ahmad K. M. Klug K. Herr S. Sterling P. Schein S. (2003). Cell density ratios in a foveal patch in macaque retina. Visual Neuroscience, 20 (2), 189– 209](https://www.ncbi.nlm.nih.gov/pubmed/12916740)
+[9\][Ahmad K. M. Klug K. Herr S. Sterling P. Schein S. (2003). Cell density ratios in a foveal patch in macaque retina. Visual Neuroscience, 20 (2), 189– 209](https://www.ncbi.nlm.nih.gov/pubmed/12916740)
 
-[10] [Andrew B. Watson; A formula for human retinal ganglion cell receptive field density as a function of visual field location. Journal of Vision 2014;14(7):15. doi: https://doi.org/10.1167/14.7.15.](https://jov.arvojournals.org/article.aspx?articleid=2279458)
+[10\][Andrew B. Watson; A formula for human retinal ganglion cell receptive field density as a function of visual field location. Journal of Vision 2014;14(7):15. doi: https://doi.org/10.1167/14.7.15.](https://jov.arvojournals.org/article.aspx?articleid=2279458)
 
-[11] [Drasdo N. Fowler C. W. (1974). Non-linear projection of the retinal image in a wide-angle schematic eye. British Journal of Ophthalmology, 58 (8), 709– 714.](http://www.ncbi.nlm.nih.gov/pubmed/4433482)
+[11\][Drasdo N. Fowler C. W. (1974). Non-linear projection of the retinal image in a wide-angle schematic eye. British Journal of Ophthalmology, 58 (8), 709– 714.](http://www.ncbi.nlm.nih.gov/pubmed/4433482)
 
-[12] [Curcio, C. A., Sloan, K. R., Kalina, R. E., & Hendrickson, A. E. (1990). Human photoreceptor topography. The Journal of Comparative Neurology, 292(4), 497–523. doi:10.1002/cne.902920402](https://www.ncbi.nlm.nih.gov/pubmed/2324310)
+[12\][Curcio, C. A., Sloan, K. R., Kalina, R. E., & Hendrickson, A. E. (1990). Human photoreceptor topography. The Journal of Comparative Neurology, 292(4), 497–523. doi:10.1002/cne.902920402](https://www.ncbi.nlm.nih.gov/pubmed/2324310)
 
-[13] [D.W. Marshak, in Encyclopedia of Neuroscience, 2009](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/parasol-cell)
+[13\][D.W. Marshak, in Encyclopedia of Neuroscience, 2009](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/parasol-cell)
 
-[14] [M. B.Manookin, S. PattersonNeural Mechanisms Mediating Motion Sensitivity in Parasol Ganglion Cells of the Primate Retina, 2018](https://www.sciencedirect.com/science/article/pii/S0896627318301053)
+[14\][M. B.Manookin, S. PattersonNeural Mechanisms Mediating Motion Sensitivity in Parasol Ganglion Cells of the Primate Retina, 2018](https://www.sciencedirect.com/science/article/pii/S0896627318301053)
 
-[15][Watanabe, M., and Rodieck, R. W. (1989). Parasol and midget ganglion cells of the primate retina. J. Comp. Neurol. 289, 434–454. doi: 10.1002/cne.902890308](https://onlinelibrary.wiley.com/doi/abs/10.1002/cne.902890308)
+[15\][Watanabe, M., and Rodieck, R. W. (1989). Parasol and midget ganglion cells of the primate retina. J. Comp. Neurol. 289, 434–454. doi: 10.1002/cne.902890308](https://onlinelibrary.wiley.com/doi/abs/10.1002/cne.902890308)
 
-[16] [Field, G. D., and Chichilnisky, E. J. (2007). Information processing in the primate retina: circuitry and coding. Annu. Rev. Neurosci. 30, 1–30. doi: 10.1146/annurev.neuro.30.051606.094252](https://www.annualreviews.org/doi/pdf/10.1146/annurev.neuro.30.051606.094252)
+[16\][Field, G. D., and Chichilnisky, E. J. (2007). Information processing in the primate retina: circuitry and coding. Annu. Rev. Neurosci. 30, 1–30. doi: 10.1146/annurev.neuro.30.051606.094252](https://www.annualreviews.org/doi/pdf/10.1146/annurev.neuro.30.051606.094252)
 
-[17] [Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
+[17\][Popović, Zoran. (2003). Neural limits of visual resolution.](https://www.researchgate.net/figure/The-three-main-classes-of-ganglion-cells-Midget-and-parasol-cells-are-unistratified_fig3_267306312)
 
-[18] [Carlos Carvajal, Thierry Viéville, Frédéric Alexandre. Konio Pathway: An Instinctive Visual Mecha-nism for Survival and Decision Making? Oct 2012, Bordeaux, France. hal-00756471](https://hal.inria.fr/hal-00756471/document)
+[18\][Carlos Carvajal, Thierry Viéville, Frédéric Alexandre. Konio Pathway: An Instinctive Visual Mecha-nism for Survival and Decision Making? Oct 2012, Bordeaux, France. hal-00756471](https://hal.inria.fr/hal-00756471/document)
 
+[??\][Greene G, Wachtler T and Gollisch T (2011). A model of retinal ganglion cell processing under natural viewing conditions.. Front. Comput. Neurosci. Conference Abstract: B C11 : Computational Neuroscience & Neurotechnology Bernstein Conference & Neurex Annual Meeting 2011. doi: 10.3389/conf.fncom.2011.53.00224](https://www.frontiersin.org/articles/10.3389/fnana.2015.00122/full)
 
-[???][Greene G, Wachtler T and Gollisch T (2011). A model of retinal ganglion cell processing under natural viewing conditions.. Front. Comput. Neurosci. Conference Abstract: BC11 : Computational Neuroscience & Neurotechnology Bernstein Conference & Neurex Annual Meeting 2011. doi: 10.3389/conf.fncom.2011.53.00224](https://www.frontiersin.org/articles/10.3389/fnana.2015.00122/full)
 ## Annex
 
 ### Conversion of eccentricities in millimeters to degrees
+
 I used the formula $(A5)$ from [10]
 
 $r_{mm}(r_{deg}) = 0.268r_{deg}+0.0003427r_{deg}^2-8.3309\times10^{-6}r_{deg}$ $(A5)$
 
 with $r_{mm}$ being the distance in mm² and $r_{deg}$ being the equivalent in degree
-
